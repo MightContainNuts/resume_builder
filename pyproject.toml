@@ -3,4 +3,11 @@ name = "resume-builder"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "dotenv>=0.9.9",
+    "langchain-openai>=0.3.12",
+    "langgraph>=0.3.25",
+    "openai>=1.71.0",
+    "pymupdf>=1.25.5",
+    "sqlmodel>=0.0.24",
+]

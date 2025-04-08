@@ -3,8 +3,8 @@ import pymupdf
 from openai import OpenAI
 from pydantic import BaseModel
 from dotenv import load_dotenv
-from app.services.chatbot import LangChainHandler
-from app.db.db_init import DBHandler
+from app.db_handler import DBHandler
+from pathlib import Path
 
 
 class PDFMetadata(BaseModel):
@@ -18,8 +18,8 @@ class CreateRAGData:
 
     def __init__(self):
 
-        self.to_process_path = "app/services/to_process"
-        self.processed_path = "app/services/processed"
+        self.to_process_path = Path()  / "to_process"
+        self.processed_path = Path()  / "processed"
         self.text = None
         self.metadata = None
         self.files = self.list_pdf_files_in_dir()
@@ -28,7 +28,6 @@ class CreateRAGData:
         self.client = OpenAI(
             api_key=os.environ.get(api_key),
         )
-        self.lc_handler = LangChainHandler()
 
 
     def list_pdf_files_in_dir(self):
@@ -105,6 +104,8 @@ class CreateRAGData:
         print(f"Moved {file_name} from {self.to_process_path} to {self.processed_path}")
 
 
+
+
     def main(self)->None:
         """
         Main function to process the PDF files.
@@ -121,8 +122,3 @@ class CreateRAGData:
             print(f"Processed {file}")
             print("-" * 20)
             print("\n\n")
-
-
-if __name__ == "__main__":
-    data = CreateRAGData()
-    data.main()
