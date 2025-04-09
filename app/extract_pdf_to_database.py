@@ -7,6 +7,9 @@ from app.db_handler import DBHandler
 from pathlib import Path
 
 
+
+
+
 class PDFMetadata(BaseModel):
     title: str
     content: str
@@ -34,14 +37,18 @@ class CreateRAGData:
         """
         List all files in the DIR_TO_PROCESS directory.
         """
+        print(f"Listing files in {self.to_process_path}")
         files = os.listdir(self.to_process_path)
         files_pdf = [file for file in files  if file.endswith("pdf")]
+        print(f"Found {len(files_pdf)} PDF files in {self.to_process_path}")
         return files_pdf
+
 
     def extract_text_from_pdf(self, file_name:str)->str:
         """
         Extract text from a PDF file.
         """
+
         print(f"Extracting text from {file_name}")
         extracted_text = ""
         doc = pymupdf.open(os.path.join(self.to_process_path, file_name))
@@ -85,6 +92,7 @@ class CreateRAGData:
         print(f"Content: {response.choices[0].message.parsed.content[:20]}...")
         return response.choices[0].message.parsed
 
+
     def save_metadata_to_db(self, metadata:PDFMetadata)->None:
         """
         Save the metadata to the database.
@@ -96,13 +104,13 @@ class CreateRAGData:
             )
         print(f"Metadata saved to database")
 
+
     def move_file_to_processed(self, file_name:str)->None:
         """
         Move the processed file to the processed directory.
         """
         os.rename(os.path.join(self.to_process_path, file_name), os.path.join(self.processed_path, file_name))
         print(f"Moved {file_name} from {self.to_process_path} to {self.processed_path}")
-
 
 
 
@@ -122,3 +130,6 @@ class CreateRAGData:
             print(f"Processed {file}")
             print("-" * 20)
             print("\n\n")
+        with DBHandler() as db:
+            docs = db.retrieve_all_documents_from_db()
+            db.store_documents_in_file(docs)
