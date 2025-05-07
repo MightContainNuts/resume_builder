@@ -68,8 +68,9 @@ class LangChainHandler:
         5. Bullet Points (Quantifiable Matches to the Job Description)
         6. Motivation for applying (Why You Want to Work for the Company)
         7. Closing (Call to Action)
-        
         include a SWOT analysis of the candidate and include the strengths, weaknesses, opportunities and threats.
+        Create a cover letter that is professional and engaging, but not too much like an AI generated response.
+        Ensure the cover letter is generated in the language of the job description.
         """
 
         # Generate response from LLM
@@ -113,6 +114,20 @@ class LangChainHandler:
         print(f"Response generated: Chances of getting the job: {response.chances} %")
         print(response.reasoning)
         return response
+
+    def create_profile_summary(self) -> str:
+        "create an improved cover letter based on results from the first draft"
+        print("creating profile summary")
+
+        prompt_with_info = f"""
+        using the {self.documents}, create a summary of the profile."""
+
+        # Generate response from LLM
+
+        profile_summary = self.llm.invoke([SystemMessage(content=prompt_with_info)])
+
+
+        return profile_summary.content
 
 
     @staticmethod
@@ -168,4 +183,7 @@ class LangChainHandler:
         self.analyse_chances(final_cover_letter)
         final_template = self.create_cover_letter_file(final_cover_letter)
         with DBHandler() as db:
-            db.store_resume_to_file(final_template)
+            db.store_resume_to_file(final_template, type="cover_letter")
+        summary = self.create_profile_summary()
+        with DBHandler() as db:
+            db.store_resume_to_file(summary, type="profile_summary")

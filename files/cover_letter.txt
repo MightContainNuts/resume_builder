@@ -1,14 +1,14 @@
 
-        I am writing to express my interest in the Engineering Manager position at Redcare Pharmacy, which I discovered through your recent job posting. 
+        Ich bin über LinkedIn auf die Stelle als IT Projektmanager bei SureStride aufmerksam geworden und war sofort begeistert von der Möglichkeit, mein Fachwissen und meine Leidenschaft für agile Softwareentwicklung in einem innovativen Unternehmen wie Ihrem einzubringen. 
 
-        With over 10 years of extensive experience in software engineering and a strong emphasis on technical leadership, I believe I possess the skills necessary to drive the technical strategy and execution for the Awareness Area of your e-commerce platform. My background encompasses leading cross-functional engineering teams, aligning technical and business objectives, and delivering scalable solutions that enhance user experiences. I have expertise in system architecture, design patterns, and developing high-traffic applications, which ensures that my solutions are both effective and user-centric.
+        Mit einem Masterabschluss in Informatik und über fünf Jahren praktischer Erfahrung im Projektmanagement, einschließlich umfangreicher Kenntnisse in der Anwendung agiler Methoden wie Scrum und Kanban, bin ich überzeugt, dass ich die Anforderungen dieser Position bestens erfülle. In meiner bisherigen Laufbahn habe ich erfolgreich komplexe IT-Projekte geleitet und dabei stets den Fokus auf effiziente Zusammenarbeit und Kundenorientierung gelegt. Mein technisches Verständnis und meine Fähigkeit, mich schnell in komplexe Softwarelandschaften einzuarbeiten, ermöglichen es mir, sowohl technische als auch geschäftliche Anforderungen optimal zu vereinen.
 
-        - Successfully led multiple cross-functional engineering teams at Payoneer, improving delivery speed and stakeholder engagement by 30% through efficient Agile practices.
-- Managed the development of high-traffic applications, significantly enhancing online conversions and user engagement metrics.
-- Developed a comprehensive technical roadmap that aligned with product goals, achieving a 25% reduction in project delivery times across teams.
-- Completed advanced certifications in AI and data science, enhancing my ability to leverage technology for innovative solutions.
+        - Nachweisbare Erfolge in der Leitung von Projekten zur Effizienzsteigerung, mit einer durchschnittlichen Produktivitätssteigerung von 30%.
+- Implementierung von agilen Methoden, die Projektlaufzeiten um 25% verkürzt haben.
+- Über 3 Jahre Erfahrung in der Zusammenarbeit mit verschiedenen Interessensgruppen, was meine ausgeprägte Kundenorientierung unter Beweis stellt.
+- Gezielte Schulung und Coaching von Mitarbeitern, was die Teamdynamik und die Qualität der Arbeit signifikant verbessert hat.
 
-        I am particularly motivated to work for Redcare Pharmacy because of its mission to ensure that every individual has access to health. The company's commitment to innovation paired with a collaborative work environment resonates with my own professional values. I am eager to contribute to a leading e-pharmacy and leverage my technical expertise to enhance user experiences and positively impact society.
+        Ich bin besonders motiviert, bei SureStride zu arbeiten, da ich den starken Fokus Ihres Unternehmens auf innovative IT-Lösungen und agile Methoden sehr schätze. Der Gedanke, durch Technologie den Alltag der Menschen zu erleichtern und einen bedeutenden Beitrag zu leisten, inspiriert mich und entspricht meiner eigenen beruflichen Vision.
 
-        I would appreciate the opportunity to discuss how my skills and experience can align with the needs of your team. Thank you for considering my application, and I look forward to the possibility of contributing to Redcare Pharmacy's mission.
+        Ich freue mich darauf, meine Ideen und Erfahrungen in einem persönlichen Gespräch mit Ihnen zu teilen. Vielen Dank für Ihre Zeit und Überlegung. Ich bin gespannt auf Ihre Rückmeldung.
         

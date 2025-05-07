@@ -1,49 +1,27 @@
-About the job
-Company Description
+IHRE AUFGABEN
 
-About Redcare Pharmacy:
+Professionelle Projektplanung und -organisation
+Steuerung von Releases und Inbetriebnahmen
+Fachliche Klärung und Management von Anforderungen (Requirements Engineering) 
+Design von IT-Anwendungsarchitekturen
 
-As Europe’s No.1 e-pharmacy, Redcare Pharmacy is powered by passionate teams and cutting-edge innovation. We strive to create a healthy, collaborative work environment where every employee feels valued and inspired to contribute to our vision “Until every human has their health”. If you’re seeking a career that offers purpose and aligns with your values, join us and begin your #Redcareer today.
+IHR PROFIL
 
-About the role:
+Erfolgreich abgeschlossenes Studium (Master oder Dipl. Universität) der Fachrichtungen Informatik, Wirtschaftsinformatik oder vergleichbares Studium
+Erfahrung in der agilen Softwareentwicklung mit Scrum 
+Fähigkeit, sich in komplexe Softwarelandschaften und IT-Architekturen einzuarbeiten
+Umfassende Erfahrung im professionellen Projektmanagement und Kenntnis gängiger Projektmanagementmethoden
+Mehrjährige Praxis im Umgang mit unterschiedlichen Interessensgruppen und ein hoher Grad an Kundenorientierung
+Sehr gute Deutschkenntnisse in Wort und Schrift 
 
-We are seeking an experienced and visionaryEngineering Manager to drive the technical strategy and execution for theAwareness Areaof our e-commerce platform. The Awareness Area is a critical part of our user journey, encompassing the upper funnel pages of our web shop and app, including thehomepage,product detail pages,search results,shopping cart and more.As the Engineering Manager, you will collaborate closely with the Lead Product Owner to align technical and product goals, steer cross-functional engineering teams, and ensure the delivery of scalable, user-centric solutions that enhance the shopping experience. This role focuses on technical outcomes, architectural oversight, and cross-team alignment, while partnering with an Engineering People Manager to foster team growth and skill maturityof our engineers.
+DAS BIETEN WIR
 
-About the tech stack:Java, JavaScript, NodeJS, ReactJS, Spring Boot, RMQ, MongoDB, Kubernetes, GitHub.
-
-Job Description
-
-About your tasks:
-
-Technical vision and strategy:define the technical vision and strategy for the Awareness Area, ensuring seamless functionality, performance, and scalability across high-impact pages in the user journey. Develop and maintain a technical roadmap, aligning with product goals to optimize user engagement and drive conversions.
-Team steering and collaboration:provide technical leadership to three cross-functional engineering teams working on key upper funnel pages, ensuring alignment with the product roadmap and organizational objectives. Partner with the Lead Product Owner of the Awareness Area to prioritize work, balance trade-offs, and deliver impactful, user-focused solutions. Collaborate with other Area Tech Leads to manage dependencies across adjacent product areas and ensure cohesive technical strategies.
-Mentorship and growth:mentor and guide engineers in technical best practices, fostering a culture of excellence, innovation, and continuous learning. Work with the Engineering People Manager to support team members’ skill development and career progression.
-Outcome ownership:take accountability for the technical outcomes of the Awareness Area, ensuring the timely delivery of high-quality solutions that enhance user engagement and drive business metrics.Monitor and measure the impact of technical decisions on the performance and scalability of upper funnel pages, adjusting strategies as needed to meet evolving business needs.
-
-Qualifications
-
-About you:
-
-Several years of experiencein software engineering, with a strong focus on technical leadership and architecture.
-Proven experience steering multiple cross-functional teams and delivering successful technical outcomes in a fast-paced environment.
-Expertise in system architecture, design patterns, and scalable software solutions, particularly for high-traffic applications.
-Strong collaboration skills, with experience working closely with product leaders to align technical and business goals.
-Excellent communication skills, capable of articulating technical concepts to both technical and non-technical stakeholders.
-Demonstrate an end-to-end mindset by considering the entire value chain, ensuring that decisions and actions within your domain account for their potential impact on other parts of the company and align with broader organizational goals.
-
-Additional Information
-
-About your benefits:
-
-In order to provide our employees with the best possible support for their individual needs, we offer a wide range of benefits:
-
-Sports:Stay healthy. Profit from a membership (M) package at Urban Sports Club, so that you can take advantage of a huge variety of sport offers.
-Mental Health:Get quick and professional help from psychologists of Likeminded if you feel overwhelmed in private or professional life. Anonymous and free of charge.
-Work from Home:If your job does not require you to be present in the office, we can arrange the place you work from individually - even for up to 20 days a year anywhere in the EU.
-Mobility:We provide our employees with a fully costed Deutschland Ticket which can be used at any time.Click here to learn more.
-Personal development:Grow! We support and encourage your individual development through various in- and external trainings.
-And many more :)
-
-Remote work policy:
-
-Our offices are open, but you are free to work from home, from any location in Germany. It is entirely up to you if you want to pop into the office every now and again, or if you work from home all the time. At the same time, we value relationship between all members of the area and therefore we haveregularteam and area anchor dayson which every team member is asked to come to the office.
+Sehr gute Work-Life-Balance und bis zu 80 % Homeoffice
+Unterstützung bei der Suche nach einer Staatsbedienstetenwohnung
+Für IT-Masterabsolventen (w/m/d) besteht i.d.R. nach 3 Jahren die Möglichkeit der Übernahme in ein Beamtenverhältnis der 4. QE, je nach persönlicher Eignung, Leistung und Befähigung
+Einen unbefristeten Arbeitsvertrag und einen krisensicheren Arbeitsplatz
+30 Tage Urlaub pro vollem Kalenderjahr, zusätzlich sind der 24.12. und der 31.12. frei
+Alle Sozialleistungen des öffentlichen Dienstes in Bayern und eine zusätzliche Betriebsrente (VBL) sowie eine Jahressonderzahlung
+Anspruchsvolle und zukunftsorientierte Aufgabengebiete 
+Umfangreiche Fortbildungsmöglichkeiten und ein aktives Gesundheitsmanagement
+Möglichkeit des Radleasings für Arbeit und Freizeit bei einem Jobbike-Händler vor Ort

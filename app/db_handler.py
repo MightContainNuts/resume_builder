@@ -143,11 +143,11 @@ class DBHandler:
             json.dump(documents, json_file, ensure_ascii=False,indent = 4)
         print("Documents stored in documents.json. number of documents: ", len(documents))
 
-    def store_resume_to_file(self, resume:str)->None:
+    def store_resume_to_file(self, resume:str, type:str)->None:
         """
         Store the resume to a file.
         """
-        resume_path = Path() / "files" / "cover_letter.txt"
+        resume_path = Path() / "files" / f"{type}.txt"
         with open(resume_path, "w") as f:
             f.write(resume)
         print(f"Stored resume to file")
