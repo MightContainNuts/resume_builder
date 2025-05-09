@@ -1,14 +1,15 @@
 
-        I am excited to apply for the Head of Developer Relations position at Qdrant, which I discovered through a professional networking platform focused on AI and ML innovations. 
+        I am excited to apply for the Head of Developer Relations position at Qdrant, which I discovered on your careers page. 
 
-        With over 6 years of experience in Developer Relations and a robust foundation in database technologies, I am well-prepared to lead Qdrant's global DevRel strategy. My technical expertise in vector search and machine learning aligns seamlessly with Qdrant's mission of providing high-performance solutions for developers. I have demonstrated success in building and nurturing developer communities, creating impactful content, and driving engagement. Furthermore, my hands-on coding experience enhances my strategic perspective, allowing me to effectively advocate for developers both within and outside the organization.
+        With over five years of experience in Developer Relations and Developer Experience, I have cultivated a robust skill set that positions me as an ideal candidate for this role. My journey blends engineering expertise with a passion for open-source technologies, particularly in the realm of databases and machine learning. I have a proven track record of creating engaging content and fostering vibrant developer communities, all while advocating for developers' needs both inside and outside the organization.
 
-        - Over 6 years of experience in Developer Relations with a focus on open-source and database products.
-- Developed and implemented DevRel strategies leading to a 40% increase in community engagement over two years.
-- Delivered more than 20 technical presentations and published numerous blog posts and tutorials, resulting in a 30% growth in developer community size.
-- Successfully led a team of 5, promoting a collaborative and high-performance culture.
+        - Over 5 years of experience in Developer Relations, focusing on open-source and database products, with a strong emphasis on community building and engagement.
+- Delivered 20+ technical talks at industry conferences, significantly boosting community visibility and interaction.
+- Authored numerous blog posts and tutorials that garnered thousands of views, demonstrating my ability to simplify complex topics for diverse audiences.
+- Successfully built and nurtured developer communities across various regions, achieving a 30% increase in active contributors through strategic outreach and engagement initiatives.
+- Established partnerships with leading industry players to enhance community reach and foster collaboration.
 
-        I am particularly inspired by Qdrant’s dedication to open-source technology and its transformative potential in AI applications. The opportunity to contribute to a company that values developer experience and community growth resonates deeply with me. I am eager to build a vibrant developer community around Qdrant’s innovative technologies and help shape a vital function as the company continues to grow.
+        I am particularly drawn to Qdrant due to your innovative approach in the technology sector and your commitment to building a high-impact Developer Relations function. Your remote-first culture resonates with my values of flexibility and collaboration, and I am eager to contribute to a team that is dedicated to advancing cutting-edge technology.
 
-        I welcome the opportunity to discuss how my experience and vision align with Qdrant's goals. Thank you for considering my application. I look forward to the possibility of contributing to Qdrant's continued success in driving Developer Relations forward.
+        I welcome the opportunity to discuss how my background and vision align with Qdrant's goals. Thank you for considering my application; I look forward to the possibility of contributing to your mission and community.
         

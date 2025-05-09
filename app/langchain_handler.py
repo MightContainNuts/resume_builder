@@ -14,7 +14,7 @@ from pathlib import Path
 from app.db_handler import DBHandler
 import os
 
-from typing import List
+from typing import List, Tuple
 import numpy.typing as npt
 import numpy as np
 from torch import Tensor
@@ -77,6 +77,7 @@ class LangChainHandler:
         self.job_description = self._load_job_description()
         self.structured_job_description = None
         self.vector_store = self._vector_store_documents()
+        self.extract_key_data_from_job_description()
 
     def extract_key_data_from_job_description(self):
         """Extract key data from the job description."""
@@ -122,15 +123,16 @@ class LangChainHandler:
 
 
 
-    def create_cover_letter(self) -> AIResponse:
+    def create_cover_letter(self, requirements, nice_to_haves) -> AIResponse:
         """Generate a response using the validated query and supplementary documents."""
         print("Creating draft cover letter")
 
         # Extract user query and documents
 
         prompt_with_docs = f"""
-        Job Description: {self.job_description} Using the documents provided, which are: {self.documents}.
-        Match skills from the document and job description and emphasise these in the cover letter
+        Job Description: {self.structured_job_description} Using the results from the similarity search and from
+        the matching requirements {requirements} and possible nice to haves {nice_to_haves}, create a cover letter with the goal of
+        landing the job.
         The cover letter should be no longer than one page and should be in a professional format.
         The cover letter should be structured as follows:
         1. Company Name
@@ -247,7 +249,9 @@ class LangChainHandler:
 
     def main(self):
         """one function to rule them all"""
-        first_draft = self.create_cover_letter()
+
+        requirements, nice_to_haves = self.retrieve_from_vector_store()
+        first_draft = self.create_cover_letter(requirements, nice_to_haves)
         draft_template = self.create_cover_letter_file(first_draft)
         draft_chance    = self.analyse_chances(draft_template)
         final_cover_letter =self.improve_cover_letter(draft_template,
@@ -282,6 +286,25 @@ class LangChainHandler:
             documents=split_docs,
         )
 
+    def retrieve_from_vector_store(self) -> Tuple[List, List]:
+        """Retrieves the most relevant documents from the vector store."""
+        print("Retrieving relevant documents from vector store ...")
+        requirement_results = []
+        nice_to_have_results = []
+        for requirement in self.structured_job_description.requirements.split(","):
+            print(f"Requirement: {requirement}")
+            results = self.vector_store.similarity_search(
+                requirement,
+                k=5,
+            )
+        for nice_to_have in self.structured_job_description.preferred_nice_to_have.split(","):
+            print(f"Nice to have: {nice_to_have}")
+            nice_to_have_results += self.vector_store.similarity_search(
+                nice_to_have,
+                k=5,
+                )
+        return requirement_results, nice_to_have_results
+
 class EmbeddingFunctionWrapper(Embeddings):
     def __init__(self, model_name: str):
         self.model = SentenceTransformer(model_name)
@@ -293,8 +316,3 @@ class EmbeddingFunctionWrapper(Embeddings):
     def embed_query(self, text: str) -> Tensor:
         # For single query embedding
         return self.model.encode(text, convert_to_tensor=False)
-
-
-if __name__ == "__main__":
-    handler = LangChainHandler()
-    handler.extract_key_data_from_job_description()
