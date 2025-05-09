@@ -1,27 +1,56 @@
-IHRE AUFGABEN
+Head of Developer Relations (DevRel)
+Remote
+Employee
+Management, Team Leader
+Qdrant is the leading open-source vector database designed to power the next generation of AI applications. Our mission is to provide developers with a seamless, high-performance solution for similarity search and large-scale machine learning use cases. We’re trusted by startups and enterprises alike and are growing a passionate global community of developers and contributors.
 
-Professionelle Projektplanung und -organisation
-Steuerung von Releases und Inbetriebnahmen
-Fachliche Klärung und Management von Anforderungen (Requirements Engineering) 
-Design von IT-Anwendungsarchitekturen
+Position Summary
 
-IHR PROFIL
+We seek a visionary and hands-on Head of Developer Relations to lead and grow Qdrant’s global DevRel strategy. This role sits at the intersection of engineering, marketing, and community, serving as a powerful advocate for developers inside and outside the company. You will own how Qdrant shows up to developers—through content, community, events, and direct engagement.
 
-Erfolgreich abgeschlossenes Studium (Master oder Dipl. Universität) der Fachrichtungen Informatik, Wirtschaftsinformatik oder vergleichbares Studium
-Erfahrung in der agilen Softwareentwicklung mit Scrum 
-Fähigkeit, sich in komplexe Softwarelandschaften und IT-Architekturen einzuarbeiten
-Umfassende Erfahrung im professionellen Projektmanagement und Kenntnis gängiger Projektmanagementmethoden
-Mehrjährige Praxis im Umgang mit unterschiedlichen Interessensgruppen und ein hoher Grad an Kundenorientierung
-Sehr gute Deutschkenntnisse in Wort und Schrift 
+This is a strategic and executive role. You’ll set the direction and roll up your sleeves to write code, create content, and build strong ties with developers across the AI/ML and infrastructure ecosystem.
 
-DAS BIETEN WIR
+Tasks
+Key Responsibilities
 
-Sehr gute Work-Life-Balance und bis zu 80 % Homeoffice
-Unterstützung bei der Suche nach einer Staatsbedienstetenwohnung
-Für IT-Masterabsolventen (w/m/d) besteht i.d.R. nach 3 Jahren die Möglichkeit der Übernahme in ein Beamtenverhältnis der 4. QE, je nach persönlicher Eignung, Leistung und Befähigung
-Einen unbefristeten Arbeitsvertrag und einen krisensicheren Arbeitsplatz
-30 Tage Urlaub pro vollem Kalenderjahr, zusätzlich sind der 24.12. und der 31.12. frei
-Alle Sozialleistungen des öffentlichen Dienstes in Bayern und eine zusätzliche Betriebsrente (VBL) sowie eine Jahressonderzahlung
-Anspruchsvolle und zukunftsorientierte Aufgabengebiete 
-Umfangreiche Fortbildungsmöglichkeiten und ein aktives Gesundheitsmanagement
-Möglichkeit des Radleasings für Arbeit und Freizeit bei einem Jobbike-Händler vor Ort
+Strategy & Leadership
+
+Define and execute a long-term DevRel strategy that aligns with Qdrant’s business and product goals.
+Build and manage a high-performing Developer Relations team over time.
+Work closely with Product, Engineering, Marketing, and Community teams to ensure unified messaging and developer experience.
+Developer Engagement & Advocacy
+
+Represent Qdrant in the developer and AI/ML community—at conferences, webinars, podcasts, hackathons, and online platforms.
+Create and distribute high-quality technical content (blog posts, tutorials, videos, demos) to drive awareness and adoption.
+Engage with open-source contributors, GitHub issues, and forums to support and grow the community.
+Community Growth
+
+Foster a vibrant and inclusive developer community through events, forums, Discord, and meetups.
+Develop programs to onboard, recognize, and empower external contributors, ambassadors, and champions.
+Build feedback loops from the community into the product roadmap.
+Measurement & Optimization
+
+Define KPIs to measure DevRel impact (e.g. GitHub engagement, traffic, community growth, NPS, event attendance).
+Track and analyze engagement data to iterate on outreach strategies.
+Requirements
+Requirements
+
+Must-Haves
+
+5+ years of experience in Developer Relations, Developer Experience, or Engineering roles, ideally with open-source and/or database products.
+Excellent public speaking and writing skills, with a strong technical portfolio (talks, blog posts, videos, etc.).
+Deep understanding of vector search, machine learning workflows, or infrastructure tooling.
+Experience building and scaling developer communities globally.
+Comfortable working in a fast-paced startup and distributed environment.
+Nice-to-Haves
+
+Background in databases, search engines, or ML frameworks (e.g. TensorFlow, PyTorch, Hugging Face).
+Experience managing a team or function.
+Familiarity with OSS governance, licensing, and community contribution practices.
+Benefits
+What We Offer
+
+Remote-first, flexible working environment.
+Opportunity to shape and lead a high-impact function from the ground up.
+A passionate, collaborative, and fast-growing team working on cutting-edge technology.
+Competitive compensation, equity, and benefits.

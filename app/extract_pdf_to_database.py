@@ -1,11 +1,18 @@
 import os
-import pymupdf
-from openai import OpenAI
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from app.db_handler import DBHandler
 from pathlib import Path
+import pymupdf
 
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import SystemMessage
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+from app.langchain_handler import LangChainHandler
+
+from typing import List
+from langchain_core.documents import Document
 
 
 
@@ -26,11 +33,22 @@ class CreateRAGData:
         self.text = None
         self.metadata = None
         self.files = self.list_pdf_files_in_dir()
+
+
+        self.llm = self.create_model()
+
+
+    @staticmethod
+    def create_model():
+        """create llm model"""
+        print("Creating LLM model")
+        model = "gpt-4o-mini"
         load_dotenv()
         api_key = os.environ.get("OPENAI_API_KEY")
-        self.client = OpenAI(
-            api_key=os.environ.get(api_key),
-        )
+        llm = ChatOpenAI(model=model,
+                         temperature=0,
+                         max_tokens=1000, )
+        return llm
 
 
     def list_pdf_files_in_dir(self):
@@ -49,9 +67,14 @@ class CreateRAGData:
         Extract text from a PDF file.
         """
 
+        """
+                Extract text from a PDF file.
+                """
+
         print(f"Extracting text from {file_name}")
         extracted_text = ""
-        doc = pymupdf.open(os.path.join(self.to_process_path, file_name))
+        doc = pymupdf.open(
+            os.path.join(self.to_process_path, file_name))
 
         for page in doc:
             text = page.get_text().encode("utf8")
@@ -75,34 +98,27 @@ class CreateRAGData:
         content: The content of the document.
         category: The type of the document (certificate, cv, etc)
         size: The size of the document in word count
-        Return the cleaned text as a string"""
+        Return the cleaned text as a string
+        text to clean: {text}"""
 
-        response = self.client.beta.chat.completions.parse(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system","content": prompt},
-                {"role": "user",  "content": text},
-                           ],
-            response_format=PDFMetadata,
-            )
+        structured_llm = self.llm.with_structured_output(PDFMetadata)
+        response = structured_llm.invoke([SystemMessage(content=prompt)])
+
+
         print(f"Data parsed")
-        print(f"Title: {response.choices[0].message.parsed.title}")
-        print(f"Category: {response.choices[0].message.parsed.category}")
-        print(f"Size: {response.choices[0].message.parsed.size}")
-        print(f"Content: {response.choices[0].message.parsed.content[:20]}...")
-        return response.choices[0].message.parsed
+        print(f"Title: {response.title}")
+        print(f"Category: {response.category}")
+        print(f"Size: {response.size}")
+        print(f"Content: {response.content[:20]}...")
+        return response
 
 
-    def save_metadata_to_db(self, metadata:PDFMetadata)->None:
-        """
-        Save the metadata to the database.
-        """
-        print(f"Saving metadata to database")
-        with DBHandler() as db:
-            db.add_new_document(
-                structured_data=metadata,
-            )
-        print(f"Metadata saved to database")
+    @staticmethod
+    def split_document(doc:str)->List[Document]:
+        """ split the document into smaller chunks.  """
+        splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+        chunks = splitter.create_documents([doc])
+        return chunks
 
 
     def move_file_to_processed(self, file_name:str)->None:
@@ -122,10 +138,12 @@ class CreateRAGData:
             print("-" * 20)
             print(f"Processing {file}")
             print("-"*20)
-            text = self.extract_text_from_pdf(file)
-            metadata = self.clean_and_create_metadata(text)
-            print(f"Metadata: {metadata.title}, {metadata.category}, {metadata.size}")
-            self.save_metadata_to_db(metadata)
+            raw_text = self.extract_text_from_pdf(file)
+            cleaned_text = self.clean_and_create_metadata(raw_text)
+            print(f"Metadata: {cleaned_text.title}, {cleaned_text.category}, {cleaned_text.size}")
+            split_docs = self.split_document(cleaned_text.content)
+            lgh = LangChainHandler()
+            lgh.add_to_vector_store_documents(split_docs)
             self.move_file_to_processed(file)
             print(f"Processed {file}")
             print("-" * 20)

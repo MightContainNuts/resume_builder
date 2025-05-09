@@ -3,12 +3,22 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 import json
 from pydantic import BaseModel, Field
+from langchain_postgres import PGVector
+from langchain.embeddings.base import Embeddings
+from sentence_transformers import SentenceTransformer
 
 from langchain_core.messages import (
     SystemMessage,
 )
 from pathlib import Path
 from app.db_handler import DBHandler
+import os
+
+from typing import List
+import numpy.typing as npt
+import numpy as np
+from torch import Tensor
+from langchain.schema import Document
 
 
 
@@ -35,6 +45,23 @@ class EvaluateChances(BaseModel):
     chances: int = Field(description="Evaluation of the chances of getting the job, based on cover letter and job description.")
     reasoning: str = Field(description="Why the chances are what they are.")
 
+class DataJobDescription(BaseModel):
+    """Response model for the LangChainHandler."""
+    company_name: str = Field(description="The companies name.")
+    contact_person: str = Field(description="The contact person for the job.")
+    job_title: str = Field(description="The title of the job.")
+    employment_type: str = Field(description="The type of employment.")
+    requirements: str = Field(description="The requirements for the job.")
+    preferred_nice_to_have: str = Field(description="Preferred or nice to have skills.")
+    experience_level: str = Field(description="Experience level required for the job.")
+    education_level: str = Field(description="Education level required for the job.")
+    compensation: str = Field(description="Compensation offered for the job.")
+    company_culture: str = Field(description="Company culture and values.")
+    location: str = Field(description="Location of the job.")
+    company_size: str = Field(description="Size of the company.")
+    company_industry: str = Field(description="Industry of the company.")
+    work_hours: str = Field(description="Work hours for the job.")
+
 class LangChainHandler:
 
     def __init__(self):
@@ -48,6 +75,51 @@ class LangChainHandler:
 
         self.documents = self._load_documents()
         self.job_description = self._load_job_description()
+        self.structured_job_description = None
+        self.vector_store = self._vector_store_documents()
+
+    def extract_key_data_from_job_description(self):
+        """Extract key data from the job description."""
+        print("Extracting key data from job description")
+        prompt = f"""
+        Extract the key data from the job description {self.job_description} and return it in a structured format.
+        The key data should include the following fields:
+        1. Company Name
+        2. Contact Person (if available)    
+        3. Job Title (e.g. Engineering Manager, Project Manager, etc.)
+        4. Employment Type (e.g. Full-time, Part-time, Contract, etc.)
+        5. Requirements (e.g. skills, experience, etc.)
+        6. Preferred/Nice to Have (e.g. skills, experience, etc.)
+        7. Experience level (e.g. Junior, Mid, Senior, etc.)
+        8. Education level (e.g. Bachelors, Masters, etc.)
+        9. Compensation (e.g. salary, benefits, etc.)
+        10. Company Culture (e.g. values, mission, etc.)
+        11. Location (e.g. remote, on-site, etc.)\
+        12. Company Size (e.g. number of employees, etc.)
+        13. Company Industry (e.g. technology, finance, etc.)
+        14. Work hours (e.g. 9-5, flexible, etc.)
+        """
+
+        # Generate response from LLM
+        structured_llm = self.llm.with_structured_output(DataJobDescription)
+        self.structured_job_description:DataJobDescription = structured_llm.invoke([SystemMessage(content=prompt)])
+        assert isinstance(self.structured_job_description, DataJobDescription), "Response is not of type AIResponse on Generation"
+        print("Structured job description generated")
+        print("-" * 20)
+        print(f"Company Name: {self.structured_job_description.company_name}")
+        print(f"Role: {self.structured_job_description.job_title}")
+        print(f"Requirements: {self.structured_job_description.requirements}")
+        print(f"Preferred/Nice to Have: {self.structured_job_description.preferred_nice_to_have}")
+        print(f"Experience Level: {self.structured_job_description.experience_level}")
+        print(f"Education Level: {self.structured_job_description.education_level}")
+        print(f"Compensation: {self.structured_job_description.compensation}")
+        print(f"Company Culture: {self.structured_job_description.company_culture}")
+        print(f"Location: {self.structured_job_description.location}")
+        print(f"Company Size: {self.structured_job_description.company_size}")
+        print(f"Company Industry: {self.structured_job_description.company_industry}")
+        print(f"Work Hours: {self.structured_job_description.work_hours}")
+
+
 
 
     def create_cover_letter(self) -> AIResponse:
@@ -134,7 +206,9 @@ class LangChainHandler:
     def _load_documents()->dict|None:
         print("Loading documents")
         """Load assistant guidelines from file."""
-        doc_path = Path() / "files" / "documents.json"
+        project_root = Path(__file__).parent.parent
+        doc_path = project_root / "files" / "documents.json"
+        print(doc_path)
         try:
             with open(doc_path, "r") as file:
                 return json.load(file)
@@ -147,7 +221,9 @@ class LangChainHandler:
     def _load_job_description()->str|None:
         """Load assistant guidelines from file."""
         print("Loading job description")
-        doc_path = Path() / "files" / "job_description.txt"
+        project_root = Path(__file__).parent.parent
+        doc_path = project_root / "files" / "job_description.txt"
+        print(doc_path)
         try:
             with open(doc_path, "r") as file:
                 return file.read()
@@ -187,3 +263,38 @@ class LangChainHandler:
         summary = self.create_profile_summary()
         with DBHandler() as db:
             db.store_resume_to_file(summary, type="profile_summary")
+
+    @staticmethod
+    def _vector_store_documents() -> PGVector:
+        """creates a vector store for the documents"""
+        load_dotenv()
+        connection_string = os.getenv("DATABASE_URL")
+        return PGVector(connection=connection_string,
+            collection_name="chat_history", use_jsonb=True,
+            embeddings=EmbeddingFunctionWrapper(
+                "all-MiniLM-L6-v2"), )
+
+    def add_to_vector_store_documents(self, split_docs: List[Document]) -> None:
+        """Embeds and stores the user query and AI response into the vector store."""
+        print("Adding new document to vector store ...")
+
+        self.vector_store.add_documents(
+            documents=split_docs,
+        )
+
+class EmbeddingFunctionWrapper(Embeddings):
+    def __init__(self, model_name: str):
+        self.model = SentenceTransformer(model_name)
+
+    def embed_documents(self, texts: list[str]) -> npt.NDArray[np.float32]:
+        # Use the encode method to generate embeddings
+        return self.model.encode(texts, convert_to_tensor=False)
+
+    def embed_query(self, text: str) -> Tensor:
+        # For single query embedding
+        return self.model.encode(text, convert_to_tensor=False)
+
+
+if __name__ == "__main__":
+    handler = LangChainHandler()
+    handler.extract_key_data_from_job_description()

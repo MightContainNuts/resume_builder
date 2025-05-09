@@ -1,14 +1,14 @@
 
-        Ich bin über LinkedIn auf die Stelle als IT Projektmanager bei SureStride aufmerksam geworden und war sofort begeistert von der Möglichkeit, mein Fachwissen und meine Leidenschaft für agile Softwareentwicklung in einem innovativen Unternehmen wie Ihrem einzubringen. 
+        I am excited to apply for the Head of Developer Relations position at Qdrant, which I discovered through a professional networking platform focused on AI and ML innovations. 
 
-        Mit einem Masterabschluss in Informatik und über fünf Jahren praktischer Erfahrung im Projektmanagement, einschließlich umfangreicher Kenntnisse in der Anwendung agiler Methoden wie Scrum und Kanban, bin ich überzeugt, dass ich die Anforderungen dieser Position bestens erfülle. In meiner bisherigen Laufbahn habe ich erfolgreich komplexe IT-Projekte geleitet und dabei stets den Fokus auf effiziente Zusammenarbeit und Kundenorientierung gelegt. Mein technisches Verständnis und meine Fähigkeit, mich schnell in komplexe Softwarelandschaften einzuarbeiten, ermöglichen es mir, sowohl technische als auch geschäftliche Anforderungen optimal zu vereinen.
+        With over 6 years of experience in Developer Relations and a robust foundation in database technologies, I am well-prepared to lead Qdrant's global DevRel strategy. My technical expertise in vector search and machine learning aligns seamlessly with Qdrant's mission of providing high-performance solutions for developers. I have demonstrated success in building and nurturing developer communities, creating impactful content, and driving engagement. Furthermore, my hands-on coding experience enhances my strategic perspective, allowing me to effectively advocate for developers both within and outside the organization.
 
-        - Nachweisbare Erfolge in der Leitung von Projekten zur Effizienzsteigerung, mit einer durchschnittlichen Produktivitätssteigerung von 30%.
-- Implementierung von agilen Methoden, die Projektlaufzeiten um 25% verkürzt haben.
-- Über 3 Jahre Erfahrung in der Zusammenarbeit mit verschiedenen Interessensgruppen, was meine ausgeprägte Kundenorientierung unter Beweis stellt.
-- Gezielte Schulung und Coaching von Mitarbeitern, was die Teamdynamik und die Qualität der Arbeit signifikant verbessert hat.
+        - Over 6 years of experience in Developer Relations with a focus on open-source and database products.
+- Developed and implemented DevRel strategies leading to a 40% increase in community engagement over two years.
+- Delivered more than 20 technical presentations and published numerous blog posts and tutorials, resulting in a 30% growth in developer community size.
+- Successfully led a team of 5, promoting a collaborative and high-performance culture.
 
-        Ich bin besonders motiviert, bei SureStride zu arbeiten, da ich den starken Fokus Ihres Unternehmens auf innovative IT-Lösungen und agile Methoden sehr schätze. Der Gedanke, durch Technologie den Alltag der Menschen zu erleichtern und einen bedeutenden Beitrag zu leisten, inspiriert mich und entspricht meiner eigenen beruflichen Vision.
+        I am particularly inspired by Qdrant’s dedication to open-source technology and its transformative potential in AI applications. The opportunity to contribute to a company that values developer experience and community growth resonates deeply with me. I am eager to build a vibrant developer community around Qdrant’s innovative technologies and help shape a vital function as the company continues to grow.
 
-        Ich freue mich darauf, meine Ideen und Erfahrungen in einem persönlichen Gespräch mit Ihnen zu teilen. Vielen Dank für Ihre Zeit und Überlegung. Ich bin gespannt auf Ihre Rückmeldung.
+        I welcome the opportunity to discuss how my experience and vision align with Qdrant's goals. Thank you for considering my application. I look forward to the possibility of contributing to Qdrant's continued success in driving Developer Relations forward.
         
