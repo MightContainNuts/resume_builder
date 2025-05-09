@@ -1,10 +1,12 @@
 
 from sqlmodel import SQLModel, create_engine, Session, select, inspect
+
 from db.models import Documents
 from dotenv import load_dotenv
 from pathlib import Path
 import os
 import json
+from typing import List
 
 
 
@@ -52,7 +54,7 @@ class DBHandler:
             raise ValueError("Engine not created. Call create_engine first.")
 
 
-    def add_new_document(self, structured_data):
+    def add_new_document(self, structured_data)->None:
         """Add a document to the RAG table."""
         try:
             # Ensure structured_data is not None and has all the required fields
@@ -93,10 +95,12 @@ class DBHandler:
             self.session.commit()
 
             print("Document saved successfully.")
+            return None
 
         except Exception as e:
             print(f"Error occurred: {e}")
             self.session.rollback()
+            return None
 
     def inspect_columns(self, table_name:str)->list:
         """
@@ -119,7 +123,7 @@ class DBHandler:
             raise ValueError("Engine not created. Call create_engine first.")
 
 
-    def retrieve_all_documents_from_db(self):
+    def retrieve_all_documents_from_db(self)->List|None:
         """Retrieve all documents from the ragdoc table."""
         if self.engine:
             all_docs = self.session.exec(select(Documents.title,
@@ -132,9 +136,10 @@ class DBHandler:
             ]
             print(f"Documents retrieved from the database. number of documents: {len(all_docs)}")
             return all_docs_dict
+        return None
 
-
-    def store_documents_in_file(self, documents:list[dict[str:str]])->None:
+    @staticmethod
+    def store_documents_in_file(documents:List[dict[str:str]])->None:
         """Store documents in a file."""
 
         db_path = Path() / "files" /"documents.json"
@@ -143,11 +148,10 @@ class DBHandler:
             json.dump(documents, json_file, ensure_ascii=False,indent = 4)
         print("Documents stored in documents.json. number of documents: ", len(documents))
 
-    def store_resume_to_file(self, resume:str, type:str)->None:
-        """
-        Store the resume to a file.
-        """
-        resume_path = Path() / "files" / f"{type}.txt"
+    @staticmethod
+    def store_resume_to_file(resume:str, type_name:str)->None:
+        """ Store the resume to a file. """
+        resume_path = Path() / "files" / f"{type_name}.txt"
         with open(resume_path, "w") as f:
             f.write(resume)
         print(f"Stored resume to file")

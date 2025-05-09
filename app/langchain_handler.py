@@ -78,6 +78,7 @@ class LangChainHandler:
         self.structured_job_description = None
         self.vector_store = self._vector_store_documents()
         self.extract_key_data_from_job_description()
+        self.profile_summary = self.create_profile_summary()
 
     def extract_key_data_from_job_description(self):
         """Extract key data from the job description."""
@@ -163,7 +164,7 @@ class LangChainHandler:
         Try and cover any missing critical points and address any issues with the content and structure.
         Improve the content against the {strengths},{weaknesses}, {opportunities}, {threats} and the job description 
         {self.job_description} to improve {draft_chance.chances} % chance of getting the job.
-        Look for missed skills that are available in {self.documents} that compliment the skills required or that you
+        Look for missed skills that are available in {self.profile_summary} that compliment the skills required or that you
         feel are noteworthy. The cover letter should impress the reader, but not sound to much like an AI generated 
         response.The cover letter should be no longer than one page and should be in a professional format."""
 
@@ -190,11 +191,13 @@ class LangChainHandler:
         return response
 
     def create_profile_summary(self) -> str:
-        "create an improved cover letter based on results from the first draft"
+        """create an improved cover letter based on results from the first draft"""
         print("creating profile summary")
 
         prompt_with_info = f"""
-        using the {self.documents}, create a summary of the profile."""
+        using the {self.documents}, create a comprehensive summary of the profile.
+        Highlight experience, skills, education, and any other relevant information relevant to a job application.
+        """
 
         # Generate response from LLM
 
@@ -217,7 +220,7 @@ class LangChainHandler:
 
         except Exception as e:
             print(f"Error loading documents: {e}")
-
+            return None
 
     @staticmethod
     def _load_job_description()->str|None:
@@ -232,17 +235,18 @@ class LangChainHandler:
 
         except Exception as e:
             print(f"Error loading documents: {e}")
+            return None
 
     @staticmethod
     def create_cover_letter_file(cover_letter:AIResponse)->str:
         """ crete a cover letter file"""
         print("Creating cover letter file")
         template = f"""
-        {cover_letter.cl_opener} \n
-        {cover_letter.cl_body}\n
-        {cover_letter.cl_bullet_points}\n
-        {cover_letter.cl_motivation}\n
-        {cover_letter.cl_closing}
+{cover_letter.cl_opener} \n
+{cover_letter.cl_body}\n
+{cover_letter.cl_bullet_points}\n
+{cover_letter.cl_motivation}\n
+{cover_letter.cl_closing}
         """
         return template
 
@@ -263,10 +267,10 @@ class LangChainHandler:
         self.analyse_chances(final_cover_letter)
         final_template = self.create_cover_letter_file(final_cover_letter)
         with DBHandler() as db:
-            db.store_resume_to_file(final_template, type="cover_letter")
+            db.store_resume_to_file(final_template, type_name="cover_letter")
         summary = self.create_profile_summary()
         with DBHandler() as db:
-            db.store_resume_to_file(summary, type="profile_summary")
+            db.store_resume_to_file(summary, type_name="profile_summary")
 
     @staticmethod
     def _vector_store_documents() -> PGVector:

@@ -6,12 +6,16 @@ This application automates the process of extracting information from PDF docume
 
 ## 🧠 Features
 
-- Extracts text from PDF documents.
+- Extracts text from PDF documents such as CVs, Resumes, and Certificates.
 - Cleans and parses the text using OpenAI's GPT-4o-mini model.
-- Stores metadata (title, content, category, size) in a SQL database.
-- Retrieves all stored documents and saves them as a JSON file.
+- Stores metadata (title, content, category, size) in a Langgraph Vector Store (PGVector).
+- Creates a Profile Summary based on all the parsed documents.
+- Generates a structured output of the job description including requirements and nice-to-have skills.
+- Retrieves results from similarity searches of required and nice to have skills
 - Generates a professional, skill-aligned cover letter using LangChain and OpenAI.
+- Improves the cover letter based on the job description and profile summary (in case of anything is missed)
 - Recommends improvements to increase job application success chances.
+- Gives an evaluation of the cover letter based on the job description and profile summary.
 
 ---
 

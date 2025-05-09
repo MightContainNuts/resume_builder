@@ -83,7 +83,7 @@ class CreateRAGData:
         return extracted_text
 
 
-    def clean_and_create_metadata(self,text):
+    def clean_and_create_metadata(self,text)->PDFMetadata:
         """
         Tokenize the text into smaller chunks.
         """
@@ -128,6 +128,14 @@ class CreateRAGData:
         os.rename(os.path.join(self.to_process_path, file_name), os.path.join(self.processed_path, file_name))
         print(f"Moved {file_name} from {self.to_process_path} to {self.processed_path}")
 
+    @staticmethod
+    def save_to_db(structured_data:PDFMetadata)->None:
+        """
+        Save the structured data to the database.
+        """
+        with DBHandler() as db:
+            db.add_new_document(structured_data)
+            print(f"Saved {structured_data.title} to database")
 
 
     def main(self)->None:
@@ -140,10 +148,11 @@ class CreateRAGData:
             print("-"*20)
             raw_text = self.extract_text_from_pdf(file)
             cleaned_text = self.clean_and_create_metadata(raw_text)
-            print(f"Metadata: {cleaned_text.title}, {cleaned_text.category}, {cleaned_text.size}")
-            split_docs = self.split_document(cleaned_text.content)
-            lgh = LangChainHandler()
-            lgh.add_to_vector_store_documents(split_docs)
+            self.save_to_db(structured_data=cleaned_text)
+            #print(f"Metadata: {cleaned_text.title}, {cleaned_text.category}, {cleaned_text.size}")
+            #split_docs = self.split_document(cleaned_text.content)
+            #lgh = LangChainHandler()
+            #lgh.add_to_vector_store_documents(split_docs)
             self.move_file_to_processed(file)
             print(f"Processed {file}")
             print("-" * 20)
