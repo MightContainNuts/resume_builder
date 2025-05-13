@@ -32,18 +32,21 @@ class AIResponse(BaseModel):
     cl_motivation: str = Field(description="Motivation for applying. (Why You Want to Work for the Company)")
     cl_closing: str = Field(description="The closing statement of the cover letter. (Call to Action)")
 
-    strengths: str = Field(description="Strengths of the candidate.")
-    weaknesses: str = Field(description="Weaknesses of the candidate.")
-    opportunities: str = Field(description="Opportunities for the candidate.")
-    threats: str = Field(description="Threats to the candidate.")
-
     time_taken: str = Field(description="Time taken to generate the response.")
     token_count: int = Field(description="Number of tokens used in the response.")
 
-class EvaluateChances(BaseModel):
+class EvaluateCoverLetter(BaseModel):
     """Response model for the LangChainHandler."""
-    chances: int = Field(description="Evaluation of the chances of getting the job, based on cover letter and job description.")
-    reasoning: str = Field(description="Why the chances are what they are.")
+    skill_match:float = Field(description="Evaluation of the skill match value between the candidate and the job description.")
+    nice_to_have_match: float = Field(description="Evaluation of the nice to have skills match between the candidate and the job description.")
+    direct_experience_match:float = Field(description="Evaluation of the experience match value between the candidate and the job description.")
+    transfer_experience_match: float = Field(description="Evaluation of the transferable experience match between the candidate and the job description.")
+    education_match: float = Field(description="Evaluation of the education match between the candidate and the job description.")
+    culture_match: float = Field(description="Evaluation of the culture match between the candidate and the job description.")
+    soft_skills_match: float = Field(description="Evaluation of the soft skills match between the candidate and the job description.")
+    certificates_match: float = Field(description="Evaluation of the certificates match between the candidate and the job description.")
+    goal_alignment_match: float = Field(description="Evaluation of the goal alignment match between the candidate and the job description.")
+    result: float = Field(description="Overall evaluation of the chances of getting the job.")
 
 class DataJobDescription(BaseModel):
     """Response model for the LangChainHandler."""
@@ -124,7 +127,7 @@ class LangChainHandler:
 
 
 
-    def create_cover_letter(self, requirements, nice_to_haves) -> AIResponse:
+    def create_cover_letter(self, requirements, nice_to_haves, experiences,) -> AIResponse:
         """Generate a response using the validated query and supplementary documents."""
         print("Creating draft cover letter")
 
@@ -132,21 +135,21 @@ class LangChainHandler:
 
         prompt_with_docs = f"""
         Job Description: {self.structured_job_description} Using the results from the similarity search and from
-        the matching requirements {requirements} and possible nice to haves {nice_to_haves}, create a cover letter with the goal of
+        the matching requirements {requirements}, possible nice to haves {nice_to_haves}, and experience levels {experiences}, create a cover letter with the goal of
         landing the job.
         The cover letter should be no longer than one page and should be in a professional format.
         The cover letter should be structured as follows:
-        1. Company Name
-        2. Role
-        3. Opener (How You Heard About the Job)
-        4. Body (How You Fit the Profile)
-        5. Bullet Points (Quantifiable Matches to the Job Description)
-        6. Motivation for applying (Why You Want to Work for the Company)
-        7. Closing (Call to Action)
-        include a SWOT analysis of the candidate and include the strengths, weaknesses, opportunities and threats.
-        Create a cover letter that is professional and engaging, but not too much like an AI generated response.
+        1. cl_company (Company Name)
+        2. cl_role (what role the candidate is applying for)
+        3. cl_opener (How You Heard About the Job - if not available, use a generic statement)
+        4. cl_body (How You Fit the Profile)
+        5. cl_bullet_points (Quantifiable Matches to the Job Description as Bullet points)
+        6. cl_motivation (Motivation for applying to Work for the Company)
+        7. cl_closing ( closing statement and Call to Action)
+        Create a cover letter that is professional and engaging, without having typical AI generated influences. Ensure all categories are covered.
         Ensure the cover letter is generated in the language of the job description.
         """
+
 
         # Generate response from LLM
         structured_llm = self.llm.with_structured_output(AIResponse)
@@ -155,39 +158,33 @@ class LangChainHandler:
         print(f"Response time = {response.time_taken}, tokens: {response.token_count}")
         return response
 
-    def improve_cover_letter(self, cover_letter_draft, strengths, weaknesses, opportunities, threats, draft_chance) -> AIResponse:
-        "create an improved cover letter based on results from the first draft"
-        print("Improving cover letter")
 
-        prompt_with_info = f"""
-        Check the draft cover letter {cover_letter_draft} provided and improve it using standard cover letter writing.
-        Try and cover any missing critical points and address any issues with the content and structure.
-        Improve the content against the {strengths},{weaknesses}, {opportunities}, {threats} and the job description 
-        {self.job_description} to improve {draft_chance.chances} % chance of getting the job.
-        Look for missed skills that are available in {self.profile_summary} that compliment the skills required or that you
-        feel are noteworthy. The cover letter should impress the reader, but not sound to much like an AI generated 
-        response.The cover letter should be no longer than one page and should be in a professional format."""
-
-
-        # Generate response from LLM
-        structured_llm = self.llm.with_structured_output(AIResponse)
-        final_cover_letter = structured_llm.invoke([SystemMessage(content=prompt_with_info)])
-        assert isinstance(final_cover_letter, AIResponse), "Response is not of type AIResponse on Generation"
-        print(f"Response time = {final_cover_letter.time_taken}, tokens: {final_cover_letter.token_count}")
-        return final_cover_letter
-
-    def analyse_chances(self, final_cover_letter) -> EvaluateChances:
+    def evaluate_cover_letter(self, cover_letter) -> EvaluateCoverLetter:
         "Evaluate the chances of getting the job based on the cover letter draft"
-        print("Evaluating chances")
+        print("Evaluating draft")
         prompt_with_info = f"""
-        Evaluate the enhanced cover letter {final_cover_letter} and evaluate against the job description in percentage.
-        Summarise your reasoning"""
+        Evaluate the enhanced cover letter {cover_letter} from the aspect of the company looking for someone to fill the job with the following description {self.job_description}
+        
+        using a continuous score between 0 and 1 accurate to 3 decimal places. If there are no requirements for a certain category return 1
+        The evaluation should include the following fields:
+        1. Skill Match (e.g. skills, experience, etc.)
+        2. Nice to Have (e.g. skills, experience, etc.)
+        3. Direct Experience Match (e.g. skills, experience, etc.)
+        4. Transfer Experience Match (e.g. skills, experience, etc.)
+        5. Education Match (e.g. skills, experience, etc.)
+        6. Culture Match (e.g. skills, experience, etc.)
+        7. Soft Skills Match (e.g. skills, experience, etc.)
+        8. Certificates Match (e.g. skills, experience, etc.)
+        9. Goal Alignment Match (e.g. skills, experience, etc.)
+        10. Result (product of all the above fields as percentage)
+        """
 
         # Generate response from LLM
-        structured_llm = self.llm.with_structured_output(EvaluateChances)
+        structured_llm = self.llm.with_structured_output(EvaluateCoverLetter)
         response = structured_llm.invoke([SystemMessage(content=prompt_with_info)])
-        print(f"Response generated: Chances of getting the job: {response.chances} %")
-        print(response.reasoning)
+        print(f"Response generated: Chances of getting the job:  %")
+        for field in response.__fields_set__:
+            print(f"{field}: {getattr(response, field)}")
         return response
 
     def create_profile_summary(self) -> str:
@@ -254,23 +251,22 @@ class LangChainHandler:
     def main(self):
         """one function to rule them all"""
 
-        requirements, nice_to_haves = self.retrieve_from_vector_store()
-        first_draft = self.create_cover_letter(requirements, nice_to_haves)
-        draft_template = self.create_cover_letter_file(first_draft)
-        draft_chance    = self.analyse_chances(draft_template)
-        final_cover_letter =self.improve_cover_letter(draft_template,
-                                                      strengths=first_draft.strengths,
-                                                      weaknesses=first_draft.weaknesses,
-                                                      opportunities=first_draft.opportunities,
-                                                      threats=first_draft.threats,
-                                                      draft_chance=draft_chance)
-        self.analyse_chances(final_cover_letter)
-        final_template = self.create_cover_letter_file(final_cover_letter)
+        requirements, nice_to_haves, experiences = self.retrieve_from_vector_store()
+        draft_response:AIResponse = self.create_cover_letter(requirements, nice_to_haves, experiences)
+        cover_letter_evaluation= 0
+        counter =0
+        draft_str = ""
+        while cover_letter_evaluation < 0.8 and counter < 3:
+            counter += 1
+            draft_str = self.create_cover_letter_file(draft_response)
+            evaluation_summary    = self.evaluate_cover_letter(draft_str)
+            cover_letter_evaluation = evaluation_summary.result
+
         with DBHandler() as db:
-            db.store_resume_to_file(final_template, type_name="cover_letter")
-        summary = self.create_profile_summary()
+            db.store_resume_to_file(draft_str, type_name="cover_letter")
+
         with DBHandler() as db:
-            db.store_resume_to_file(summary, type_name="profile_summary")
+            db.store_resume_to_file(self.profile_summary, type_name="profile_summary")
 
     @staticmethod
     def _vector_store_documents() -> PGVector:
@@ -290,11 +286,12 @@ class LangChainHandler:
             documents=split_docs,
         )
 
-    def retrieve_from_vector_store(self) -> Tuple[List, List]:
+    def retrieve_from_vector_store(self) -> Tuple[List, List, List]:
         """Retrieves the most relevant documents from the vector store."""
         print("Retrieving relevant documents from vector store ...")
         requirement_results = []
         nice_to_have_results = []
+        experience_results = []
         for requirement in self.structured_job_description.requirements.split(","):
             print(f"Requirement: {requirement}")
             results = self.vector_store.similarity_search(
@@ -307,7 +304,14 @@ class LangChainHandler:
                 nice_to_have,
                 k=5,
                 )
-        return requirement_results, nice_to_have_results
+        for experience in self.structured_job_description.experience_level.split(","):
+            print(f"Experience: {experience}")
+            experience_results += self.vector_store.similarity_search(
+                experience,
+                k=5,
+                )
+
+        return requirement_results, nice_to_have_results, experience_results
 
 class EmbeddingFunctionWrapper(Embeddings):
     def __init__(self, model_name: str):
