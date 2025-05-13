@@ -38,7 +38,7 @@ class DBHandler:
 
 
     def create_engine(self):
-        self.engine = create_engine(self.db_url, echo=True)
+        self.engine = create_engine(self.db_url, echo=False)
 
     def create_session(self):
         if self.engine:

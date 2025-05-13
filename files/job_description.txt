@@ -1,56 +1,35 @@
-Head of Developer Relations (DevRel)
-Remote
-Employee
-Management, Team Leader
-Qdrant is the leading open-source vector database designed to power the next generation of AI applications. Our mission is to provide developers with a seamless, high-performance solution for similarity search and large-scale machine learning use cases. We’re trusted by startups and enterprises alike and are growing a passionate global community of developers and contributors.
+Senior Python Engineer (Outside IR35) (Contract)
+25 April by La Fosse Associates : UK Recruitment : Platform & Architecture
 
-Position Summary
+Job Location:
+United Kingdom -England -Greater London -London
+Salary:
+£600 - £650/day
 
-We seek a visionary and hands-on Head of Developer Relations to lead and grow Qdrant’s global DevRel strategy. This role sits at the intersection of engineering, marketing, and community, serving as a powerful advocate for developers inside and outside the company. You will own how Qdrant shows up to developers—through content, community, events, and direct engagement.
 
-This is a strategic and executive role. You’ll set the direction and roll up your sleeves to write code, create content, and build strong ties with developers across the AI/ML and infrastructure ecosystem.
+Senior Software Engineer - Python - Outside IR35 £600-£650 per day - Remote or Hybrid (2 days pw London)
 
-Tasks
-Key Responsibilities
+A London based tech start up are looking for a Senior Python engineer with the following expereince - please note this is only open to UK based applicants with UK RTW.
 
-Strategy & Leadership
+Immediate start is preferred but for the right candidates notice periods can be entertained. 
 
-Define and execute a long-term DevRel strategy that aligns with Qdrant’s business and product goals.
-Build and manage a high-performing Developer Relations team over time.
-Work closely with Product, Engineering, Marketing, and Community teams to ensure unified messaging and developer experience.
-Developer Engagement & Advocacy
+You will be working on a standard API layer wrapping 3rd party services (i.e Intercom and Gong) specifically to standardise the interface for cadencing/marketing/enrolment/email sequencing.
 
-Represent Qdrant in the developer and AI/ML community—at conferences, webinars, podcasts, hackathons, and online platforms.
-Create and distribute high-quality technical content (blog posts, tutorials, videos, demos) to drive awareness and adoption.
-Engage with open-source contributors, GitHub issues, and forums to support and grow the community.
-Community Growth
+Skillset
 
-Foster a vibrant and inclusive developer community through events, forums, Discord, and meetups.
-Develop programs to onboard, recognize, and empower external contributors, ambassadors, and champions.
-Build feedback loops from the community into the product roadmap.
-Measurement & Optimization
+Backend: Python, with experience in frameworks such as Django, Flask, or FastAPI 
+Full-stack experience preferred but absolutely not essnetal (Frontend is React)
+Track record of taking products through various development environments into Production
+Excellent communication skills, with the ability to collaborate effectively and explain ideas to a range of stakeholders
+Ability to integrate and work with third-party APIs and tools
+Desirable: A strong understanding of cloud technologies
 
-Define KPIs to measure DevRel impact (e.g. GitHub engagement, traffic, community growth, NPS, event attendance).
-Track and analyze engagement data to iterate on outreach strategies.
-Requirements
-Requirements
+Day to day you will:
 
-Must-Haves
-
-5+ years of experience in Developer Relations, Developer Experience, or Engineering roles, ideally with open-source and/or database products.
-Excellent public speaking and writing skills, with a strong technical portfolio (talks, blog posts, videos, etc.).
-Deep understanding of vector search, machine learning workflows, or infrastructure tooling.
-Experience building and scaling developer communities globally.
-Comfortable working in a fast-paced startup and distributed environment.
-Nice-to-Haves
-
-Background in databases, search engines, or ML frameworks (e.g. TensorFlow, PyTorch, Hugging Face).
-Experience managing a team or function.
-Familiarity with OSS governance, licensing, and community contribution practices.
-Benefits
-What We Offer
-
-Remote-first, flexible working environment.
-Opportunity to shape and lead a high-impact function from the ground up.
-A passionate, collaborative, and fast-growing team working on cutting-edge technology.
-Competitive compensation, equity, and benefits.
+Partner with colleagues across technical and non-technical roles to brainstorm and deliver features that genuinely enhance the customer experience
+Contribute to both backend and frontend development, with a focus on writing robust, maintainable, and thoroughly tested code
+Take a lead role in shaping core areas of our product architecture and driving forward meaningful technical improvements
+Provide thoughtful code reviews, helping to uphold quality standards and support team growth
+Influence and evolve our development practices and workflows to make them more efficient and effective for the entire team
+Keep a close eye on system health and performance, quickly addressing any issues to ensure reliability
+Develop and refine data models that meet the needs of different teams across the business
