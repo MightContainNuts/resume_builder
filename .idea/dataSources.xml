@@ -15,11 +15,11 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/db.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="postgres@localhost" uuid="a0e79155-b55d-40f0-b7f5-80ab19377803">
+    <data-source source="LOCAL" name="pegasus@localhost" uuid="a0e79155-b55d-40f0-b7f5-80ab19377803">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/pegasus</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

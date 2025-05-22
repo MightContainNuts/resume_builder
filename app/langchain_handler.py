@@ -2,7 +2,7 @@
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 import json
-from pydantic import BaseModel, Field
+
 from langchain_postgres import PGVector
 from langchain.embeddings.base import Embeddings
 from sentence_transformers import SentenceTransformer
@@ -20,50 +20,9 @@ import numpy as np
 from torch import Tensor
 from langchain.schema import Document
 
+from db.schemas import AIResponse, EvaluateCoverLetter, Match, DataJobDescription
 
 
-class AIResponse(BaseModel):
-    """Response model for the LangChainHandler."""
-    cl_company: str = Field(description="The companies name.")
-    cl_role: str = Field(description="The role the candidate is applying for.")
-    cl_opener: str = Field(description="The opening statement of the cover letter. (How You Heard About the Job)")
-    cl_body: str = Field(description="The body of the cover letter. (How You Fit the Profile)")
-    cl_bullet_points: str = Field(description="The bullet points of the cover letter. (Quantifiable Matches to the Job Description)")
-    cl_motivation: str = Field(description="Motivation for applying. (Why You Want to Work for the Company)")
-    cl_closing: str = Field(description="The closing statement of the cover letter. (Call to Action)")
-
-    time_taken: str = Field(description="Time taken to generate the response.")
-    token_count: int = Field(description="Number of tokens used in the response.")
-
-class EvaluateCoverLetter(BaseModel):
-    """Response model for the LangChainHandler."""
-    skill_match:float = Field(description="Evaluation of the skill match value between the candidate and the job description.")
-    nice_to_have_match: float = Field(description="Evaluation of the nice to have skills match between the candidate and the job description.")
-    direct_experience_match:float = Field(description="Evaluation of the experience match value between the candidate and the job description.")
-    transfer_experience_match: float = Field(description="Evaluation of the transferable experience match between the candidate and the job description.")
-    education_match: float = Field(description="Evaluation of the education match between the candidate and the job description.")
-    culture_match: float = Field(description="Evaluation of the culture match between the candidate and the job description.")
-    soft_skills_match: float = Field(description="Evaluation of the soft skills match between the candidate and the job description.")
-    certificates_match: float = Field(description="Evaluation of the certificates match between the candidate and the job description.")
-    goal_alignment_match: float = Field(description="Evaluation of the goal alignment match between the candidate and the job description.")
-    result: float = Field(description="Overall evaluation of the chances of getting the job.")
-
-class DataJobDescription(BaseModel):
-    """Response model for the LangChainHandler."""
-    company_name: str = Field(description="The companies name.")
-    contact_person: str = Field(description="The contact person for the job.")
-    job_title: str = Field(description="The title of the job.")
-    employment_type: str = Field(description="The type of employment.")
-    requirements: str = Field(description="The requirements for the job.")
-    preferred_nice_to_have: str = Field(description="Preferred or nice to have skills.")
-    experience_level: str = Field(description="Experience level required for the job.")
-    education_level: str = Field(description="Education level required for the job.")
-    compensation: str = Field(description="Compensation offered for the job.")
-    company_culture: str = Field(description="Company culture and values.")
-    location: str = Field(description="Location of the job.")
-    company_size: str = Field(description="Size of the company.")
-    company_industry: str = Field(description="Industry of the company.")
-    work_hours: str = Field(description="Work hours for the job.")
 
 class LangChainHandler:
 
@@ -76,15 +35,18 @@ class LangChainHandler:
             max_retries = 3,
         )
 
-        self.documents = self._load_documents()
-        self.job_description = self._load_job_description()
+
         self.structured_job_description = None
         self.vector_store = self._vector_store_documents()
-        self.extract_key_data_from_job_description()
-        self.profile_summary = self.create_profile_summary()
+        self.documents = None
+        self.job_description = None
 
-    def extract_key_data_from_job_description(self):
+    def extract_key_data_from_job_description(self, external_job_description=None):
         """Extract key data from the job description."""
+        if external_job_description:
+            self.job_description = external_job_description
+            print("Using external job description")
+
         print("Extracting key data from job description")
         prompt = f"""
         Extract the key data from the job description {self.job_description} and return it in a structured format.
@@ -94,8 +56,8 @@ class LangChainHandler:
         3. Job Title (e.g. Engineering Manager, Project Manager, etc.)
         4. Employment Type (e.g. Full-time, Part-time, Contract, etc.)
         5. Requirements (e.g. skills, experience, etc.)
-        6. Preferred/Nice to Have (e.g. skills, experience, etc.)
-        7. Experience level (e.g. Junior, Mid, Senior, etc.)
+        6. Nice to Haves (e.g. skills, experience, etc.)
+        7. Experience level (Junior, Mid, Senior)
         8. Education level (e.g. Bachelors, Masters, etc.)
         9. Compensation (e.g. salary, benefits, etc.)
         10. Company Culture (e.g. values, mission, etc.)
@@ -103,6 +65,7 @@ class LangChainHandler:
         12. Company Size (e.g. number of employees, etc.)
         13. Company Industry (e.g. technology, finance, etc.)
         14. Work hours (e.g. 9-5, flexible, etc.)
+        15. Summary (e.g. skills, experience, etc.)
         """
 
         # Generate response from LLM
@@ -114,7 +77,7 @@ class LangChainHandler:
         print(f"Company Name: {self.structured_job_description.company_name}")
         print(f"Role: {self.structured_job_description.job_title}")
         print(f"Requirements: {self.structured_job_description.requirements}")
-        print(f"Preferred/Nice to Have: {self.structured_job_description.preferred_nice_to_have}")
+        print(f"Preferred/Nice to Have: {self.structured_job_description.nice_to_haves}")
         print(f"Experience Level: {self.structured_job_description.experience_level}")
         print(f"Education Level: {self.structured_job_description.education_level}")
         print(f"Compensation: {self.structured_job_description.compensation}")
@@ -123,6 +86,10 @@ class LangChainHandler:
         print(f"Company Size: {self.structured_job_description.company_size}")
         print(f"Company Industry: {self.structured_job_description.company_industry}")
         print(f"Work Hours: {self.structured_job_description.work_hours}")
+        print(f"Summary: {self.structured_job_description.summary}")
+        print("-" * 20)
+
+        return self.structured_job_description
 
 
 
@@ -203,6 +170,18 @@ class LangChainHandler:
 
         return profile_summary.content
 
+    def match_for_jobs(self, job_description:DataJobDescription) -> Match:
+        """evaluate match based on structured job description and profile"""
+        system_prompt =f"""
+        Evaluate how much the profile summary matches the job description {job_description}
+        i.e 
+        Hard skills, experience, soft skills etc.
+        Give the response back as a percentage in the range of 0 to 100 (int)
+        """
+        structured_llm = self.llm.with_structured_output(Match)
+        match = structured_llm.invoke([SystemMessage(content=system_prompt)])
+        return match
+
 
     @staticmethod
     def _load_documents()->dict|None:
@@ -250,6 +229,9 @@ class LangChainHandler:
 
     def main(self):
         """one function to rule them all"""
+        self.documents = self._load_documents()
+        self.job_description = self._load_job_description()
+        self.extract_key_data_from_job_description()
 
         requirements, nice_to_haves, experiences = self.retrieve_from_vector_store()
         draft_response:AIResponse = self.create_cover_letter(requirements, nice_to_haves, experiences)

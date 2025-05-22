@@ -1,12 +1,14 @@
 
 from sqlmodel import SQLModel, create_engine, Session, select, inspect
 
-from db.models import Documents
+from db.models import Documents,Jobs
 from dotenv import load_dotenv
 from pathlib import Path
 import os
 import json
 from typing import List
+
+from db.schemas import DataJobDescription,Match
 
 
 
@@ -155,3 +157,36 @@ class DBHandler:
         with open(resume_path, "w") as f:
             f.write(resume)
         print(f"Stored resume to file")
+
+    def save_job_to_db(self,  job:DataJobDescription, match: Match, job_title:str,job_url:str)->None:
+        """save job to database"""
+
+        company_name = job.company_name
+        contact_person = job.contact_person
+        employment_type = job.employment_type
+        requirements = job.requirements
+        nice_to_haves = job.nice_to_haves
+        compensation = job.compensation
+        company_industry = job.company_industry
+        summary = job.summary
+
+        print(
+            f"Saving job to database: {job_title}, {company_name}")
+
+        new_job = Jobs(
+            company_name=company_name,
+            contact_person=contact_person,
+            job_title=job_title,
+            employment_type=employment_type,
+            requirements=requirements,
+            nice_to_haves=nice_to_haves,
+            compensation=compensation,
+            company_industry=company_industry,
+            education=job.education_level,
+            summary=summary,
+            match=match.match,
+            job_url=job_url,
+        )
+        self.session.add(new_job)
+        self.session.commit()
+

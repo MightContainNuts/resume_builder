@@ -57,6 +57,20 @@ wheels = [
 ]
 
 [[package]]
+name = "alembic"
+version = "1.15.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mako" },
+    { name = "sqlalchemy" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e6/57/e314c31b261d1e8a5a5f1908065b4ff98270a778ce7579bd4254477209a7/alembic-1.15.2.tar.gz", hash = "sha256:1c72391bbdeffccfe317eefba686cb9a3c078005478885413b95c3b26c57a8a7", size = 1925573 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/41/18/d89a443ed1ab9bcda16264716f809c663866d4ca8de218aa78fd50b38ead/alembic-1.15.2-py3-none-any.whl", hash = "sha256:2e76bd916d547f6900ec4bb5a90aeac1485d2c92536923d0b138c02b126edc53", size = 231911 },
+]
+
+[[package]]
 name = "annotated-types"
 version = "0.7.0"
 source = { registry = "https://pypi.org/simple" }
@@ -101,6 +115,31 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz", hash = "sha256:75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b", size = 812032 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/77/06/bb80f5f86020c4551da315d78b3ab75e8228f89f0162f2c3a819e407941a/attrs-25.3.0-py3-none-any.whl", hash = "sha256:427318ce031701fea540783410126f03899a97ffc6f61596ad581ac2e40e3bc3", size = 63815 },
+]
+
+[[package]]
+name = "beautifulsoup4"
+version = "4.13.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "soupsieve" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d8/e4/0c4c39e18fd76d6a628d4dd8da40543d136ce2d1752bd6eeeab0791f4d6b/beautifulsoup4-4.13.4.tar.gz", hash = "sha256:dbb3c4e1ceae6aefebdaf2423247260cd062430a410e38c66f2baa50a8437195", size = 621067 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/50/cd/30110dc0ffcf3b131156077b90e9f60ed75711223f306da4db08eff8403b/beautifulsoup4-4.13.4-py3-none-any.whl", hash = "sha256:9bbbb14bfde9d79f38b8cd5f8c7c85f4b8f2523190ebed90e950a8dea4cb1c4b", size = 187285 },
+]
+
+[[package]]
+name = "bs4"
+version = "0.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "beautifulsoup4" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c9/aa/4acaf814ff901145da37332e05bb510452ebed97bc9602695059dd46ef39/bs4-0.0.2.tar.gz", hash = "sha256:a48685c58f50fe127722417bae83fe6badf500d54b55f7e39ffe43b798653925", size = 698 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/51/bb/bf7aab772a159614954d84aa832c129624ba6c32faa559dfb200a534e50b/bs4-0.0.2-py2.py3-none-any.whl", hash = "sha256:abf8742c0805ef7f662dce4b51cca104cffe52b835238afc169142ab9b3fbccc", size = 1189 },
 ]
 
 [[package]]
@@ -614,6 +653,18 @@ wheels = [
 ]
 
 [[package]]
+name = "mako"
+version = "1.3.10"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "markupsafe" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz", hash = "sha256:99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28", size = 392474 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/87/fb/99f81ac72ae23375f22b7afdb7642aba97c00a713c217124420147681a2f/mako-1.3.10-py3-none-any.whl", hash = "sha256:baef24a52fc4fc514a0887ac600f9f1cff3d82c61d4d700a1fa84d597b88db59", size = 78509 },
+]
+
+[[package]]
 name = "markupsafe"
 version = "3.0.2"
 source = { registry = "https://pypi.org/simple" }
@@ -920,6 +971,18 @@ wheels = [
 ]
 
 [[package]]
+name = "outcome"
+version = "1.3.0.post0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "attrs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/98/df/77698abfac98571e65ffeb0c1fba8ffd692ab8458d617a0eed7d9a8d38f2/outcome-1.3.0.post0.tar.gz", hash = "sha256:9dcf02e65f2971b80047b377468e72a268e15c0af3cf1238e6ff14f7f91143b8", size = 21060 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/55/8b/5ab7257531a5d830fc8000c476e63c935488d74609b50f9384a643ec0a62/outcome-1.3.0.post0-py2.py3-none-any.whl", hash = "sha256:e771c5ce06d1415e356078d3bdd68523f284b4ce5419828922b6871e65eda82b", size = 10692 },
+]
+
+[[package]]
 name = "packaging"
 version = "24.2"
 source = { registry = "https://pypi.org/simple" }
@@ -1136,6 +1199,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pysocks"
+version = "1.7.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/bd/11/293dd436aea955d45fc4e8a35b6ae7270f5b8e00b53cf6c024c83b657a11/PySocks-1.7.1.tar.gz", hash = "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0", size = 284429 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8d/59/b4572118e098ac8e46e399a1dd0f2d85403ce8bbaad9ec79373ed6badaf9/PySocks-1.7.1-py3-none-any.whl", hash = "sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5", size = 16725 },
+]
+
+[[package]]
 name = "python-dotenv"
 version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1216,6 +1288,8 @@ name = "resume-builder"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "alembic" },
+    { name = "bs4" },
     { name = "dotenv" },
     { name = "langchain" },
     { name = "langchain-community" },
@@ -1225,12 +1299,15 @@ dependencies = [
     { name = "openai" },
     { name = "psycopg2-binary" },
     { name = "pymupdf" },
+    { name = "selenium" },
     { name = "sentence-transformers" },
     { name = "sqlmodel" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "alembic", specifier = ">=1.15.2" },
+    { name = "bs4", specifier = ">=0.0.2" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "langchain", specifier = ">=0.3.25" },
     { name = "langchain-community", specifier = ">=0.3.21" },
@@ -1240,6 +1317,7 @@ requires-dist = [
     { name = "openai", specifier = ">=1.71.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
     { name = "pymupdf", specifier = ">=1.25.5" },
+    { name = "selenium", specifier = ">=4.32.0" },
     { name = "sentence-transformers", specifier = ">=4.1.0" },
     { name = "sqlmodel", specifier = ">=0.0.24" },
 ]
@@ -1319,6 +1397,23 @@ wheels = [
 ]
 
 [[package]]
+name = "selenium"
+version = "4.32.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "trio" },
+    { name = "trio-websocket" },
+    { name = "typing-extensions" },
+    { name = "urllib3", extra = ["socks"] },
+    { name = "websocket-client" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/54/2d/fafffe946099033ccf22bf89e12eede14c1d3c5936110c5f6f2b9830722c/selenium-4.32.0.tar.gz", hash = "sha256:b9509bef4056f4083772abb1ae19ff57247d617a29255384b26be6956615b206", size = 870997 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ea/37/d07ed9d13e571b2115d4ed6956d156c66816ceec0b03b2e463e80d09f572/selenium-4.32.0-py3-none-any.whl", hash = "sha256:c4d9613f8a45693d61530c9660560fadb52db7d730237bc788ddedf442391f97", size = 9369668 },
+]
+
+[[package]]
 name = "sentence-transformers"
 version = "4.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1353,6 +1448,24 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc", size = 20372 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2", size = 10235 },
+]
+
+[[package]]
+name = "sortedcontainers"
+version = "2.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e8/c4/ba2f8066cceb6f23394729afe52f3bf7adec04bf9ed2c820b39e19299111/sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88", size = 30594 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0", size = 29575 },
+]
+
+[[package]]
+name = "soupsieve"
+version = "2.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/3f/f4/4a80cd6ef364b2e8b65b15816a843c0980f7a5a2b4dc701fc574952aa19f/soupsieve-2.7.tar.gz", hash = "sha256:ad282f9b6926286d2ead4750552c8a6142bc4c783fd66b0293547c8fe6ae126a", size = 103418 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e7/9c/0e6afc12c269578be5c0c1c9f4b49a8d32770a080260c333ac04cc1c832d/soupsieve-2.7-py3-none-any.whl", hash = "sha256:6e60cc5c1ffaf1cebcc12e8188320b72071e922c2e897f737cadce79ad5d30c4", size = 36677 },
 ]
 
 [[package]]
@@ -1535,6 +1648,37 @@ wheels = [
 ]
 
 [[package]]
+name = "trio"
+version = "0.30.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "attrs" },
+    { name = "cffi", marker = "implementation_name != 'pypy' and os_name == 'nt'" },
+    { name = "idna" },
+    { name = "outcome" },
+    { name = "sniffio" },
+    { name = "sortedcontainers" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/01/c1/68d582b4d3a1c1f8118e18042464bb12a7c1b75d64d75111b297687041e3/trio-0.30.0.tar.gz", hash = "sha256:0781c857c0c81f8f51e0089929a26b5bb63d57f927728a5586f7e36171f064df", size = 593776 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/69/8e/3f6dfda475ecd940e786defe6df6c500734e686c9cd0a0f8ef6821e9b2f2/trio-0.30.0-py3-none-any.whl", hash = "sha256:3bf4f06b8decf8d3cf00af85f40a89824669e2d033bb32469d34840edcfc22a5", size = 499194 },
+]
+
+[[package]]
+name = "trio-websocket"
+version = "0.12.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "outcome" },
+    { name = "trio" },
+    { name = "wsproto" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d1/3c/8b4358e81f2f2cfe71b66a267f023a91db20a817b9425dd964873796980a/trio_websocket-0.12.2.tar.gz", hash = "sha256:22c72c436f3d1e264d0910a3951934798dcc5b00ae56fc4ee079d46c7cf20fae", size = 33549 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c7/19/eb640a397bba49ba49ef9dbe2e7e5c04202ba045b6ce2ec36e9cadc51e04/trio_websocket-0.12.2-py3-none-any.whl", hash = "sha256:df605665f1db533f4a386c94525870851096a223adcb97f72a07e8b4beba45b6", size = 21221 },
+]
+
+[[package]]
 name = "triton"
 version = "3.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1596,6 +1740,32 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz", hash = "sha256:f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d", size = 307268 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c8/19/4ec628951a74043532ca2cf5d97b7b14863931476d117c471e8e2b1eb39f/urllib3-2.3.0-py3-none-any.whl", hash = "sha256:1cee9ad369867bfdbbb48b7dd50374c0967a0bb7710050facf0dd6911440e3df", size = 128369 },
+]
+
+[package.optional-dependencies]
+socks = [
+    { name = "pysocks" },
+]
+
+[[package]]
+name = "websocket-client"
+version = "1.8.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e6/30/fba0d96b4b5fbf5948ed3f4681f7da2f9f64512e1d303f94b4cc174c24a5/websocket_client-1.8.0.tar.gz", hash = "sha256:3239df9f44da632f96012472805d40a23281a991027ce11d2f45a6f24ac4c3da", size = 54648 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5a/84/44687a29792a70e111c5c477230a72c4b957d88d16141199bf9acb7537a3/websocket_client-1.8.0-py3-none-any.whl", hash = "sha256:17b44cc997f5c498e809b22cdf2d9c7a9e71c02c8cc2b6c56e7c2d1239bfa526", size = 58826 },
+]
+
+[[package]]
+name = "wsproto"
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "h11" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c9/4a/44d3c295350d776427904d73c189e10aeae66d7f555bb2feee16d1e4ba5a/wsproto-1.2.0.tar.gz", hash = "sha256:ad565f26ecb92588a3e43bc3d96164de84cd9902482b130d0ddbaa9664a85065", size = 53425 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/78/58/e860788190eba3bcce367f74d29c4675466ce8dddfba85f7827588416f01/wsproto-1.2.0-py3-none-any.whl", hash = "sha256:b9acddd652b585d75b20477888c56642fdade28bdfd3579aa24a4d2c037dd736", size = 24226 },
 ]
 
 [[package]]
