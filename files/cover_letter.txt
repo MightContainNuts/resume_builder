@@ -1,14 +1,14 @@
 
-I am writing to express my interest in the Senior Software Engineer - Python position at La Fosse Associates, which I discovered through your company’s careers page. 
+I recently came across the Engineering Manager position at Pleo through a job listing on your company’s careers page, and I was immediately drawn to the opportunity. 
 
-With over seven years of experience in backend development, particularly in Python and its frameworks, I am confident in my ability to contribute effectively to your team. My background in deploying products through various development environments into production aligns perfectly with the requirements of this role. I have consistently demonstrated excellent communication skills, allowing me to collaborate seamlessly with cross-functional teams and integrate third-party APIs and tools effectively.
+With over ten years of experience in software engineering and a strong background in people management, I have successfully led cross-functional teams to deliver high-quality software products. My expertise lies in fostering a collaborative environment that prioritizes transparency and innovation, aligning with Pleo's core values. I possess a customer-centric mindset that drives my teams to not only meet but exceed customer expectations, ensuring that we build solutions that truly resonate with users. I also have a solid technical foundation that enables me to engage in meaningful technical discussions and guide my teams effectively.
 
-- Over 7 years of experience in backend development with a strong focus on Python, Django, and Flask.
-- Successfully led multiple projects from development through to production, ensuring robust delivery and performance.
-- Proven ability to integrate and work with various third-party APIs and tools, enhancing overall functionality and user experience.
-- Full-stack experience with a solid understanding of cloud technologies, optimizing applications for scalability.
+- Successfully managed multiple engineering teams, improving delivery speed by 30% over two years.
+- Led cross-functional projects that increased stakeholder engagement, resulting in a 25% reduction in development cycles.
+- Developed and implemented process optimizations that enhanced software quality, decreasing bug reports by 40% post-launch.
+- Championed team culture transformations, leading to a 20% improvement in employee satisfaction scores.
 
-I am particularly drawn to La Fosse Associates because of your commitment to innovation within the technology sector and the opportunity to work remotely or in a hybrid setting. I believe that my technical expertise and proactive approach to problem-solving would be a great match for your team.
+I am excited about the possibility of working at Pleo because of your commitment to innovation and collaboration. The opportunity to lead a talented engineering team while contributing to a company that values customer success aligns perfectly with my professional goals and personal values. I admire Pleo’s dedication to making a difference in the lives of your customers, and I am eager to be a part of that journey.
 
-I would welcome the opportunity to discuss how my background, skills, and enthusiasms align with the goals of La Fosse Associates. Thank you for considering my application. I look forward to hearing from you soon.
+Thank you for considering my application. I look forward to the opportunity to discuss how my experience and vision align with the goals of Pleo. I am excited about the possibility of contributing to your team and would welcome the chance for an interview.
         

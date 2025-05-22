@@ -14,14 +14,9 @@ from app.langchain_handler import LangChainHandler
 from typing import List
 from langchain_core.documents import Document
 
+from db.schemas import PDFMetadata
 
 
-
-class PDFMetadata(BaseModel):
-    title: str
-    content: str
-    category: str
-    size: int
 
 
 class CreateRAGData:

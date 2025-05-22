@@ -1,35 +1,69 @@
-Senior Python Engineer (Outside IR35) (Contract)
-25 April by La Fosse Associates : UK Recruitment : Platform & Architecture
+Engineering Manager
+(View all jobs)
+Lisbon, Lisboa, Portugal, London, England, United Kingdom, Madrid, Madrid, Spain
+At Pleo, we’re on a mission to revolutionise the way businesses manage company spending. No more outdated processes, clunky spreadsheets, or frustrating delays - we believe spend management should be seamless, empowering, and surprisingly effective for finance teams and employees alike. We’re creating tools that promote autonomy, foster trust, and let businesses focus on what truly matters.
 
-Job Location:
-United Kingdom -England -Greater London -London
-Salary:
-£600 - £650/day
+Our culture is built on transparency, collaboration, and a deep commitment to innovation – which is reflected in our spending solution. At Pleo, you’ll join a passionate team shaping the future of work, all while having some fun along the way.
+
+About the role
+
+Joining our team as an Engineering Manager places you at the forefront of advancing our technical excellence and innovation. You will be part of a knowledgeable team of leaders representing various technical areas. Your closest collaborator will be the product manager supervising the same teams, and you will report to one of our Senior Engineering Managers.
+
+You’re responsible for delivery and outcomes across multiple engineering teams. You foster the environment in which engineers perform at their best and grow both as individuals and as a team. You do so by making sure each team member is clear on what we expect and how they can grow, by making sure our processes are helping rather than standing in the way, and by working with all engineers ensuring we are building high-quality software.
+
+Your leadership style:
+
+We always say that we hire anyone who we would want to be our boss, irrespective of the role they’re in (from Customer Support student workers to co-founders!). That should be the feeling we’re left with when any of us speak to you.
+We are looking for someone who cares deeply about individuals as human beings - we focus on authentic leadership and are actively trying to develop ourselves in this space.
+We hope that you will be able to show vulnerability, radical transparency, and a listening ear to those around you.
+We truly believe that with this type of style you and your team will set an incredible path forward - and that path will get us to incredible places. We want an engineering manager whose team will be standing on the top of the mountain with them - celebrating together and not left behind exhausted on the path below.
+We want you to help your team(s) through the journey of becoming high-performing, building trust among the members in the team, and helping them fine-tune their processes.
+You will thrive in this role if you:
+
+Have a passion for people management. You work to see your team and individuals growing and shipping great software
+You like to work with cross-functional teams and other stakeholders to align engineering functions with product & business direction and goals. You think like a technologist in the core and optimize for both customers and the business.
+Enjoy design and optimization of teams and processes to maximize their efficiency. You are comfortable stepping into technical discussions or taking important stakeholder meetings to remove roadblocks allowing the team to move forward.
+You are a strong communicator, with both technical and commercial stakeholders.
+You’re a technologist at heart. We work in cross-functional teams in product and engineering: each team is made up of co-founders from product and engineering - and joined by designers, coders, and maybe even some people from commercial.
+What this Role entails:
+
+Work closely with the Product Manager and set a vision and direction for the team or group of product teams.
+Directly manage Engineers (and Tech Leads) and oversee a group of Engineers.
+Drive a customer-centric & solution-oriented mindset.
+Continuously improve the environment and processes for how we build our product.
+Align technology direction within your area, with other areas as well as with the overall technology direction of the company.
+Represent engineering in key initiatives and projects within the department or across the company and ensure they get delivered.
+Design the organization, and objectives and hold a high standard in people, delivery, and technology.
+The annual salary for this position varies based on your location:
+
+United Kingdom: €111,600 - €118,500
+
+Spain/Portugal: €101,7400 - €107,400
+
+Show me the benefits!
+Your own Pleo card (no more out-of-pocket spending!)
+Lunch is on us for your work days - enjoy catered meals or receive a lunch allowance based on your local office 🍜
+Comprehensive private healthcare - depending on your location, coverage options include Vitality, Alan or Médis
+We offer 25 days of holiday + your public holidays
+For our Team, we offer both hybrid and fully remote working options
+Option to purchase 5 additional days of holiday through a salary sacrifice
+We use MyndUp to give our employees access to free mental health and well-being support with great success so far  ❤️‍🩹
+Access to LinkedIn Learning - acquire new skills, stay abreast of industry trends and fuel your personal and professional development continuously
+Paid parental leave - we want to make sure that we're supportive of families and help you feel that you don't have to compromise your family due to work 👶
+Why join us?
+
+Working at Pleo means you're working on something very exciting: the future of work. Our mission is to help every company go beyond the books. Pleo itself means ‘more than you’d expect’, and it’s been the secret to our success over the last 8 years. So it’s only fitting that we’d pass this philosophy onto our customers to help them make the most of their finances.
+
+We think company spending should be delegated to all employees and teams, that it should be as automated as possible, and that it should drive a culture of responsible spending. Finance teams shouldn’t be siloed from the rest of the organisation – they should work in unity with marketing, sales, IT and everyone else.
+
+Speaking of working in unity, our values tell the story of how we work at Pleo. We have four core values, the first of which is ‘champion the customer’, which means we address real pain points that businesses face. Next up is ‘succeed as a team’, which highlights how our strength lies in our diversity and trust in each other. We also ‘make it happen’ by taking bold decisions and following through to deliver results. Last but not least, we ‘build to scale’, creating lasting solutions that address today’s challenges and anticipate tomorrow’s needs.
+
+So, in a nutshell, that's Pleo. Today we are a 850+ team, from over 100 nations, sitting in our Copenhagen HQ, London, Stockholm, Berlin, Madrid, Montreal and Lisbon offices —and quite a few full-time remotes in 35 other countries! Being HQ'd out of Copenhagen means we're inspired by things like a good work-life balance. If you don't work in the office with us, we'll help you set up the best remote setup possible and make sure you still have time to connect with your team.
 
 
-Senior Software Engineer - Python - Outside IR35 £600-£650 per day - Remote or Hybrid (2 days pw London)
+About your application
 
-A London based tech start up are looking for a Senior Python engineer with the following expereince - please note this is only open to UK based applicants with UK RTW.
-
-Immediate start is preferred but for the right candidates notice periods can be entertained. 
-
-You will be working on a standard API layer wrapping 3rd party services (i.e Intercom and Gong) specifically to standardise the interface for cadencing/marketing/enrolment/email sequencing.
-
-Skillset
-
-Backend: Python, with experience in frameworks such as Django, Flask, or FastAPI 
-Full-stack experience preferred but absolutely not essnetal (Frontend is React)
-Track record of taking products through various development environments into Production
-Excellent communication skills, with the ability to collaborate effectively and explain ideas to a range of stakeholders
-Ability to integrate and work with third-party APIs and tools
-Desirable: A strong understanding of cloud technologies
-
-Day to day you will:
-
-Partner with colleagues across technical and non-technical roles to brainstorm and deliver features that genuinely enhance the customer experience
-Contribute to both backend and frontend development, with a focus on writing robust, maintainable, and thoroughly tested code
-Take a lead role in shaping core areas of our product architecture and driving forward meaningful technical improvements
-Provide thoughtful code reviews, helping to uphold quality standards and support team growth
-Influence and evolve our development practices and workflows to make them more efficient and effective for the entire team
-Keep a close eye on system health and performance, quickly addressing any issues to ensure reliability
-Develop and refine data models that meet the needs of different teams across the business
+Please submit your application in English; it’s our company language so you’ll be speaking lots of it if you join 💕
+We treat all candidates equally: If you are interested please apply through our application system - any correspondence should come from there! Our lovely support isn't able to pass on any calls/ emails our way - and this makes sure that the candidate experience is smooth and fair to everyone 😊
+We’re on a mission to make everyone feel valued at work. That’s only achievable if our team reflects the diversity of the world around us - and that starts with you, hitting apply, even if you are worried you might not tick all the boxes! We embrace and encourage people from all backgrounds to apply - regardless of race/ethnicity, colour, religion, nationality, gender, sex, sexual orientation, age, marital status, disability, neurodiversity, socio-economic status, culture or beliefs.
+When you submit an application we process your personal data as a data processor. Find out more about how your data is used in the FAQs section at the bottom of our jobs page..
