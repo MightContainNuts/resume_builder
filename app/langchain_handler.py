@@ -51,21 +51,23 @@ class LangChainHandler:
         prompt = f"""
         Extract the key data from the job description {self.job_description} and return it in a structured format.
         The key data should include the following fields:
-        1. Company Name
+        1. Company Name (name of the company offering the job)
         2. Contact Person (if available)    
         3. Job Title (e.g. Engineering Manager, Project Manager, etc.)
-        4. Employment Type (e.g. Full-time, Part-time, Contract, etc.)
-        5. Requirements (e.g. skills, experience, etc.)
-        6. Nice to Haves (e.g. skills, experience, etc.)
-        7. Experience level (Junior, Mid, Senior)
-        8. Education level (e.g. Bachelors, Masters, etc.)
-        9. Compensation (e.g. salary, benefits, etc.)
-        10. Company Culture (e.g. values, mission, etc.)
-        11. Location (e.g. remote, on-site, etc.)\
-        12. Company Size (e.g. number of employees, etc.)
-        13. Company Industry (e.g. technology, finance, etc.)
-        14. Work hours (e.g. 9-5, flexible, etc.)
-        15. Summary (e.g. skills, experience, etc.)
+        4. Location of the job itself
+         - this may differ from the location of the company offering the job
+        5. Work Type (remote, on-site, hybrid)
+        6. Employment Type (e.g. Full-time, Part-time, Contract, etc.)
+        7. Requirements (e.g. skills, experience, etc.)
+        8. Nice to Haves (e.g. skills, experience, etc.)
+        9. Experience level (Junior, Mid, Senior)
+        10. Education level (e.g. Bachelors, Masters, etc.)
+        11. Compensation (e.g. salary, benefits, etc.)
+        12. Company Culture (e.g. values, mission, etc.)
+        13. Company Size (e.g. number of employees, etc.)
+        14. Company Industry (e.g. technology, finance, etc.)
+        15. Work hours (e.g. 9-5, flexible, etc.)
+        16. Summary (e.g. skills, experience, etc.)
         """
 
         # Generate response from LLM
@@ -78,14 +80,8 @@ class LangChainHandler:
         print(f"Role: {self.structured_job_description.job_title}")
         print(f"Requirements: {self.structured_job_description.requirements}")
         print(f"Preferred/Nice to Have: {self.structured_job_description.nice_to_haves}")
-        print(f"Experience Level: {self.structured_job_description.experience_level}")
-        print(f"Education Level: {self.structured_job_description.education_level}")
         print(f"Compensation: {self.structured_job_description.compensation}")
-        print(f"Company Culture: {self.structured_job_description.company_culture}")
         print(f"Location: {self.structured_job_description.location}")
-        print(f"Company Size: {self.structured_job_description.company_size}")
-        print(f"Company Industry: {self.structured_job_description.company_industry}")
-        print(f"Work Hours: {self.structured_job_description.work_hours}")
         print(f"Summary: {self.structured_job_description.summary}")
         print("-" * 20)
 
@@ -170,7 +166,7 @@ class LangChainHandler:
 
         return profile_summary.content
 
-    def match_for_jobs(self, job_description:DataJobDescription) -> Match:
+    def match_for_jobs(self, job_description:str) -> Match:
         """evaluate match based on structured job description and profile"""
         system_prompt =f"""
         Evaluate how much the profile summary matches the job description {job_description}

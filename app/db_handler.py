@@ -169,24 +169,40 @@ class DBHandler:
         compensation = job.compensation
         company_industry = job.company_industry
         summary = job.summary
+        location = job.location
+        work_type = job.work_type
+
+
 
         print(
-            f"Saving job to database: {job_title}, {company_name}")
+            f"Saving job to database: {job_title}, {job.company_name}")
 
         new_job = Jobs(
-            company_name=company_name,
-            contact_person=contact_person,
+            company_name=job.company_name,
+            contact_person=job.contact_person,
             job_title=job_title,
-            employment_type=employment_type,
-            requirements=requirements,
-            nice_to_haves=nice_to_haves,
-            compensation=compensation,
-            company_industry=company_industry,
-            education=job.education_level,
-            summary=summary,
+            location=job.location,
+            work_type=job.work_type,
+            employment_type=job.employment_type,
+            requirements=job.requirements,
+            nice_to_haves=job.nice_to_haves,
+            experience_level=job.experience_level,
+            education_level=job.education_level,
+            compensation=job.compensation,
+            company_culture=job.company_culture,
+            company_size=job.company_size,
+            company_industry=job.company_industry,
+            summary=job.summary,
             match=match.match,
             job_url=job_url,
         )
         self.session.add(new_job)
         self.session.commit()
 
+    def job_exists(self, job_url:str)->bool:
+        """Check if a job exists."""
+        """Check if a job with the given URL already exists in the database."""
+        stmt = select(Jobs).where(Jobs.job_url == job_url)
+        result = self.session.execute(
+            stmt).first()  # or .one_or_none()
+        return result is not None

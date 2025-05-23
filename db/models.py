@@ -2,7 +2,6 @@ from sqlmodel import Field, SQLModel
 from sqlalchemy import Column, Enum as SQLEnum, String
 from datetime import datetime
 from enum import Enum
-from typing import Optional, List
 
 class ApplicationStatus(str, Enum):
     PENDING = "pending"
@@ -23,14 +22,21 @@ class Jobs(SQLModel, table=True):
     job_id: int | None = Field(default=None, primary_key=True)
     date: datetime = Field(default_factory=datetime.now)
     job_title: str
-    job_url: str
-    employment_type:str
-    requirements:str
-    nice_to_haves:str
-    education:str
-    compensation:str
-    company_industry:str
+    location: str
+    work_type: str
+    employment_type: str
+    requirements: str
+    nice_to_haves: str
+    experience_level: str
+    education_level: str
+    compensation: str
+    company_name:str
+    company_culture: str
+    company_size: str
+    company_industry: str
+    summary: str
     match:int
+    job_url: str
     applied:datetime = Field(sa_column=(Column(String, nullable=True)))
     status:ApplicationStatus = Field(sa_column=Column(SQLEnum(ApplicationStatus),
                                                       default=ApplicationStatus.PENDING))

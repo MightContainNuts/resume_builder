@@ -34,17 +34,18 @@ class EvaluateCoverLetter(BaseModel):
 
 class DataJobDescription(BaseModel):
     """Response model for the LangChainHandler."""
-    company_name: str = Field(description="The companies name.")
+    company_name: str = Field(description="The name of the company offering the job")
     contact_person: str = Field(description="The contact person for the job.")
     job_title: str = Field(description="The title of the job.")
-    employment_type: str = Field(description="The type of employment.")
+    location: str = Field(description="The location of the job (city/ country), not the location of the company")
+    work_type: str = Field(description="The work type of the job. (remote, on-site, hybrid)")
+    employment_type: str = Field(description="The type of employment (full time, part time)")
     requirements: str = Field(description="The requirements for the job.")
     nice_to_haves: str = Field(description="Preferred or nice to have skills.")
     experience_level: str = Field(description="Experience level required for the job.")
     education_level: str = Field(description="Education level required for the job.")
     compensation: str = Field(description="Compensation offered for the job.")
     company_culture: str = Field(description="Company culture and values.")
-    location: str = Field(description="Location of the job.")
     company_size: str = Field(description="Size of the company.")
     company_industry: str = Field(description="Industry of the company.")
     work_hours: str = Field(description="Work hours for the job.")
